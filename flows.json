@@ -399,7 +399,7 @@
         "id": "48786d0be1870435",
         "type": "delay",
         "z": "cb45ad9576c38512",
-        "name": "delay",
+        "name": "delay(ms)",
         "pauseType": "delayv",
         "timeout": "30",
         "timeoutUnits": "seconds",
@@ -412,7 +412,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 250,
+        "x": 260,
         "y": 200,
         "wires": [
             [
@@ -522,7 +522,7 @@
         "id": "61e1970f3068cbf0",
         "type": "delay",
         "z": "cb45ad9576c38512",
-        "name": "delay",
+        "name": "delay(ms)",
         "pauseType": "delayv",
         "timeout": "30",
         "timeoutUnits": "seconds",
@@ -535,7 +535,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 250,
+        "x": 260,
         "y": 280,
         "wires": [
             [
@@ -547,7 +547,7 @@
         "id": "7ac6cf1b666cf265",
         "type": "delay",
         "z": "cb45ad9576c38512",
-        "name": "delay",
+        "name": "delay(ms)",
         "pauseType": "delayv",
         "timeout": "30",
         "timeoutUnits": "seconds",
@@ -560,7 +560,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 250,
+        "x": 260,
         "y": 360,
         "wires": [
             [

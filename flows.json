@@ -399,7 +399,7 @@
         "id": "48786d0be1870435",
         "type": "delay",
         "z": "cb45ad9576c38512",
-        "name": "delay(ms)",
+        "name": "delay(120s)",
         "pauseType": "delayv",
         "timeout": "30",
         "timeoutUnits": "seconds",
@@ -412,7 +412,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 260,
+        "x": 270,
         "y": 200,
         "wires": [
             [
@@ -522,7 +522,7 @@
         "id": "61e1970f3068cbf0",
         "type": "delay",
         "z": "cb45ad9576c38512",
-        "name": "delay(ms)",
+        "name": "delay(120s)",
         "pauseType": "delayv",
         "timeout": "30",
         "timeoutUnits": "seconds",
@@ -535,7 +535,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 260,
+        "x": 270,
         "y": 280,
         "wires": [
             [
@@ -547,7 +547,7 @@
         "id": "7ac6cf1b666cf265",
         "type": "delay",
         "z": "cb45ad9576c38512",
-        "name": "delay(ms)",
+        "name": "delay(120s)",
         "pauseType": "delayv",
         "timeout": "30",
         "timeoutUnits": "seconds",
@@ -560,7 +560,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 260,
+        "x": 270,
         "y": 360,
         "wires": [
             [
@@ -682,7 +682,7 @@
         "id": "4221616079190907",
         "type": "cronplus",
         "z": "cb45ad9576c38512",
-        "name": "Every Minute",
+        "name": "Update Clock Every Minute",
         "outputField": "payload",
         "timeZone": "",
         "storeName": "",
@@ -693,7 +693,7 @@
         "options": [
             {
                 "name": "schedule1",
-                "topic": "",
+                "topic": "topic1",
                 "payloadType": "date",
                 "payload": "",
                 "expressionType": "cron",
@@ -704,8 +704,8 @@
                 "solarEvents": "sunrise,sunset"
             }
         ],
-        "x": 750,
-        "y": 40,
+        "x": 760,
+        "y": 60,
         "wires": [
             [
                 "c385a8f2c9a320c8"

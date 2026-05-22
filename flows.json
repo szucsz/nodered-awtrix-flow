@@ -1,1 +1,861 @@
-[{"id":"f6f2187d.f17ca8","type":"tab","label":"Flow 1","disabled":false,"info":""},{"id":"feb236673896ab73","type":"tab","label":"Awtrix Display","disabled":false,"info":"","env":[]},{"id":"cb45ad9576c38512","type":"tab","label":"Space Invaders","disabled":false,"info":"","env":[]},{"id":"82d58c550b2694ef","type":"mqtt-broker","name":"mqtt@opi3z","broker":"mosquitto","port":1883,"clientid":"","autoConnect":true,"usetls":false,"protocolVersion":4,"keepalive":60,"cleansession":true,"autoUnsubscribe":true,"birthTopic":"","birthQos":"0","birthRetain":"false","birthPayload":"","birthMsg":{},"closeTopic":"","closeQos":"0","closeRetain":"false","closePayload":"","closeMsg":{},"willTopic":"","willQos":"0","willRetain":"false","willPayload":"","willMsg":{},"userProps":"","sessionExpiry":""},{"id":"a18064ad1a4ca206","type":"mqtt in","z":"f6f2187d.f17ca8","name":"buttonRight","topic":"awtrix_2d6b0c/stats/buttonRight","qos":"2","datatype":"utf8","broker":"82d58c550b2694ef","nl":false,"rap":true,"rh":0,"inputs":0,"x":170,"y":260,"wires":[["78be2b1f6e8a1555"]]},{"id":"78be2b1f6e8a1555","type":"debug","z":"f6f2187d.f17ca8","name":"debug 1","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"payload","targetType":"msg","statusVal":"","statusType":"auto","x":420,"y":300,"wires":[]},{"id":"3ae71018d501485e","type":"mqtt in","z":"f6f2187d.f17ca8","name":"buttonRight","topic":"awtrix_2d6b0c/stats/buttonLeft","qos":"2","datatype":"utf8","broker":"82d58c550b2694ef","nl":false,"rap":true,"rh":0,"inputs":0,"x":170,"y":360,"wires":[["78be2b1f6e8a1555"]]},{"id":"894766c4825d0894","type":"cronplus","z":"feb236673896ab73","name":"Sunset","outputField":"payload","timeZone":"","storeName":"","commandResponseMsgOutput":"output1","defaultLocation":"","defaultLocationType":"default","outputs":1,"options":[{"name":"schedule1","topic":"topic1","payloadType":"default","payload":"","expressionType":"solar","expression":"0 * * * * * *","location":"47.34424804134613 8.529757261276245","offset":"0","solarType":"selected","solarEvents":"sunset"}],"x":180,"y":240,"wires":[["f554e5fcc32c8755","0e36eb014952b413"]]},{"id":"a43af5ea6e36d161","type":"cronplus","z":"feb236673896ab73","name":"Midnight","outputField":"payload","timeZone":"","storeName":"","commandResponseMsgOutput":"output1","defaultLocation":"","defaultLocationType":"default","outputs":1,"options":[{"name":"schedule1","topic":"topic1","payloadType":"default","payload":"","expressionType":"cron","expression":"0 55 23 * * * *","location":"","offset":"0","solarType":"all","solarEvents":"sunrise,sunset"}],"x":180,"y":340,"wires":[["8f3032210a73b024"]]},{"id":"7041f2ccea4512ca","type":"mqtt out","z":"feb236673896ab73","name":"Power Control","topic":"awtrix_2d6b0c/power","qos":"","retain":"","respTopic":"","contentType":"","userProps":"","correl":"","expiry":"","broker":"82d58c550b2694ef","x":860,"y":120,"wires":[]},{"id":"8f3032210a73b024","type":"change","z":"feb236673896ab73","name":"Power Off","rules":[{"t":"set","p":"payload","pt":"msg","to":"{\"power\": false}","tot":"json"}],"action":"","property":"","from":"","to":"","reg":false,"x":500,"y":340,"wires":[["7041f2ccea4512ca"]]},{"id":"0e36eb014952b413","type":"change","z":"feb236673896ab73","name":"Power On","rules":[{"t":"set","p":"payload","pt":"msg","to":"{\"power\": true}","tot":"json"}],"action":"","property":"","from":"","to":"","reg":false,"x":500,"y":80,"wires":[["7041f2ccea4512ca"]]},{"id":"ad13047c9aa67991","type":"cronplus","z":"feb236673896ab73","name":"Sunrise","outputField":"payload","timeZone":"","storeName":"","commandResponseMsgOutput":"output1","defaultLocation":"","defaultLocationType":"default","outputs":1,"options":[{"name":"schedule1","topic":"topic1","payloadType":"default","payload":"","expressionType":"solar","expression":"0 * * * * * *","location":"47.34424804134613 8.529757261276245","offset":"0","solarType":"selected","solarEvents":"sunrise"}],"x":180,"y":160,"wires":[["2471aedfa744ae23","0e36eb014952b413"]]},{"id":"195967b5f4ff39d7","type":"cronplus","z":"feb236673896ab73","name":"Morning","outputField":"payload","timeZone":"","storeName":"","commandResponseMsgOutput":"output1","defaultLocation":"","defaultLocationType":"default","outputs":1,"options":[{"name":"schedule1","topic":"topic1","payloadType":"default","payload":"","expressionType":"cron","expression":"0 0 6 * * * *","location":"","offset":"0","solarType":"all","solarEvents":"sunrise,sunset"}],"x":180,"y":80,"wires":[["0e36eb014952b413","f554e5fcc32c8755"]]},{"id":"898f8cebeb9881fa","type":"mqtt out","z":"feb236673896ab73","name":"Settings","topic":"awtrix_2d6b0c/settings","qos":"","retain":"","respTopic":"","contentType":"","userProps":"","correl":"","expiry":"","broker":"82d58c550b2694ef","x":840,"y":280,"wires":[]},{"id":"f554e5fcc32c8755","type":"change","z":"feb236673896ab73","name":"Reduce Brighness","rules":[{"t":"set","p":"payload","pt":"msg","to":"{\"ABRI\": false, \"BRI\": 2 }","tot":"json"}],"action":"","property":"","from":"","to":"","reg":false,"x":530,"y":160,"wires":[["898f8cebeb9881fa"]]},{"id":"2471aedfa744ae23","type":"change","z":"feb236673896ab73","name":"Auto Brighness","rules":[{"t":"set","p":"payload","pt":"msg","to":"{\"ABRI\": true, \"BRI\": 2 }","tot":"json"}],"action":"","property":"","from":"","to":"","reg":false,"x":520,"y":240,"wires":[["898f8cebeb9881fa"]]},{"id":"48786d0be1870435","type":"delay","z":"cb45ad9576c38512","name":"delay","pauseType":"delayv","timeout":"30","timeoutUnits":"seconds","rate":"1","nbRateUnits":"1","rateUnits":"second","randomFirst":"1","randomLast":"5","randomUnits":"seconds","drop":false,"allowrate":false,"outputs":1,"x":250,"y":200,"wires":[["2d3a70b9b6acc7e9"]]},{"id":"2d3a70b9b6acc7e9","type":"change","z":"cb45ad9576c38512","name":"Almost Late :: Yellow","rules":[{"t":"set","p":"payload","pt":"flow","to":"{\"draw\":[{\"dp\":[3,0,\"#FFFF00\"]},{\"dp\":[4,0,\"#FFFF00\"]},{\"dp\":[2,1,\"#FFFF00\"]},{\"dp\":[5,1,\"#FFFF00\"]},{\"dp\":[1,2,\"#FFFF00\"]},{\"dp\":[2,2,\"#FFFF00\"]},{\"dp\":[3,2,\"#FFFF00\"]},{\"dp\":[4,2,\"#FFFF00\"]},{\"dp\":[5,2,\"#FFFF00\"]},{\"dp\":[6,2,\"#FFFF00\"]},{\"dp\":[0,3,\"#FFFF00\"]},{\"dp\":[1,3,\"#FFFF00\"]},{\"dp\":[2,3,\"#000000\"]},{\"dp\":[3,3,\"#FFFF00\"]},{\"dp\":[4,3,\"#FFFF00\"]},{\"dp\":[5,3,\"#000000\"]},{\"dp\":[6,3,\"#FFFF00\"]},{\"dp\":[7,3,\"#FFFF00\"]},{\"dp\":[0,4,\"#FFFF00\"]},{\"dp\":[1,4,\"#FFFF00\"]},{\"dp\":[2,4,\"#FFFF00\"]},{\"dp\":[3,4,\"#FFFF00\"]},{\"dp\":[4,4,\"#FFFF00\"]},{\"dp\":[5,4,\"#FFFF00\"]},{\"dp\":[6,4,\"#FFFF00\"]},{\"dp\":[7,4,\"#FFFF00\"]},{\"dp\":[2,5,\"#FFFF00\"]},{\"dp\":[5,5,\"#FFFF00\"]},{\"dp\":[1,6,\"#FFFF00\"]},{\"dp\":[3,6,\"#FFFF00\"]},{\"dp\":[4,6,\"#FFFF00\"]},{\"dp\":[6,6,\"#FFFF00\"]},{\"dp\":[0,7,\"#FFFF00\"]},{\"dp\":[7,7,\"#FFFF00\"]}]}","tot":"json"},{"t":"set","p":"active","pt":"flow","to":"true","tot":"bool"},{"t":"set","p":"duration","pt":"flow","to":"120","tot":"num"},{"t":"set","p":"delay","pt":"msg","to":"120","tot":"num"}],"action":"","property":"","from":"","to":"","reg":false,"x":540,"y":200,"wires":[["c385a8f2c9a320c8","61e1970f3068cbf0"]]},{"id":"a566861136c03897","type":"change","z":"cb45ad9576c38512","name":"Too Late :: Red","rules":[{"t":"set","p":"payload","pt":"flow","to":"{\"draw\":[{\"dp\":[3,0,\"#FF0000\"]},{\"dp\":[4,0,\"#FF0000\"]},{\"dp\":[2,1,\"#FF0000\"]},{\"dp\":[3,1,\"#FF0000\"]},{\"dp\":[4,1,\"#FF0000\"]},{\"dp\":[5,1,\"#FF0000\"]},{\"dp\":[1,2,\"#FF0000\"]},{\"dp\":[2,2,\"#FF0000\"]},{\"dp\":[3,2,\"#FF0000\"]},{\"dp\":[4,2,\"#FF0000\"]},{\"dp\":[5,2,\"#FF0000\"]},{\"dp\":[6,2,\"#FF0000\"]},{\"dp\":[1,3,\"#000000\"]},{\"dp\":[2,3,\"#000000\"]},{\"dp\":[3,3,\"#FF0000\"]},{\"dp\":[4,3,\"#FF0000\"]},{\"dp\":[5,3,\"#000000\"]},{\"dp\":[6,3,\"#000000\"]},{\"dp\":[1,4,\"#FF0000\"]},{\"dp\":[2,4,\"#FF0000\"]},{\"dp\":[3,4,\"#FF0000\"]},{\"dp\":[4,4,\"#FF0000\"]},{\"dp\":[5,4,\"#FF0000\"]},{\"dp\":[6,4,\"#FF0000\"]},{\"dp\":[2,5,\"#FF0000\"]},{\"dp\":[5,5,\"#FF0000\"]},{\"dp\":[1,6,\"#FF0000\"]},{\"dp\":[3,6,\"#FF0000\"]},{\"dp\":[4,6,\"#FF0000\"]},{\"dp\":[6,6,\"#FF0000\"]},{\"dp\":[0,7,\"#FF0000\"]},{\"dp\":[2,7,\"#FF0000\"]},{\"dp\":[5,7,\"#FF0000\"]},{\"dp\":[7,7,\"#FF0000\"]}]}","tot":"json"},{"t":"set","p":"active","pt":"flow","to":"true","tot":"bool"},{"t":"set","p":"duration","pt":"flow","to":"120","tot":"num"},{"t":"set","p":"delay","pt":"msg","to":"120","tot":"num"}],"action":"","property":"","from":"","to":"","reg":false,"x":520,"y":280,"wires":[["c385a8f2c9a320c8","7ac6cf1b666cf265"]]},{"id":"61e1970f3068cbf0","type":"delay","z":"cb45ad9576c38512","name":"delay","pauseType":"delayv","timeout":"30","timeoutUnits":"seconds","rate":"1","nbRateUnits":"1","rateUnits":"second","randomFirst":"1","randomLast":"5","randomUnits":"seconds","drop":false,"allowrate":false,"outputs":1,"x":250,"y":280,"wires":[["a566861136c03897"]]},{"id":"7ac6cf1b666cf265","type":"delay","z":"cb45ad9576c38512","name":"delay","pauseType":"delayv","timeout":"30","timeoutUnits":"seconds","rate":"1","nbRateUnits":"1","rateUnits":"second","randomFirst":"1","randomLast":"5","randomUnits":"seconds","drop":false,"allowrate":false,"outputs":1,"x":250,"y":360,"wires":[["7e5729e0ce2b828f"]]},{"id":"f7d5891827ce84ec","type":"cronplus","z":"cb45ad9576c38512","name":"","outputField":"payload","timeZone":"","storeName":"","commandResponseMsgOutput":"output1","defaultLocation":"","defaultLocationType":"default","outputs":1,"options":[{"name":"schedule1","topic":"topic1","payloadType":"default","payload":"","expressionType":"cron","expression":"0 1,8,16,23,31,38,46,53 7,8 * * 1-5","location":"","offset":"0","solarType":"all","solarEvents":"sunrise,sunset"}],"x":140,"y":80,"wires":[["e98b50f17e263fc1"]]},{"id":"e98b50f17e263fc1","type":"change","z":"cb45ad9576c38512","name":"Ready :: Green","rules":[{"t":"set","p":"payload","pt":"flow","to":"{\"draw\":[{\"dp\":[2,0,\"#00FF00\"]},{\"dp\":[5,0,\"#00FF00\"]},{\"dp\":[3,1,\"#00FF00\"]},{\"dp\":[4,1,\"#00FF00\"]},{\"dp\":[1,2,\"#00FF00\"]},{\"dp\":[2,2,\"#00FF00\"]},{\"dp\":[3,2,\"#00FF00\"]},{\"dp\":[4,2,\"#00FF00\"]},{\"dp\":[5,2,\"#00FF00\"]},{\"dp\":[6,2,\"#00FF00\"]},{\"dp\":[0,3,\"#00FF00\"]},{\"dp\":[1,3,\"#00FF00\"]},{\"dp\":[2,3,\"#000000\"]},{\"dp\":[3,3,\"#00FF00\"]},{\"dp\":[4,3,\"#00FF00\"]},{\"dp\":[5,3,\"#000000\"]},{\"dp\":[6,3,\"#00FF00\"]},{\"dp\":[7,3,\"#00FF00\"]},{\"dp\":[0,4,\"#00FF00\"]},{\"dp\":[1,4,\"#00FF00\"]},{\"dp\":[2,4,\"#00FF00\"]},{\"dp\":[3,4,\"#00FF00\"]},{\"dp\":[4,4,\"#00FF00\"]},{\"dp\":[5,4,\"#00FF00\"]},{\"dp\":[6,4,\"#00FF00\"]},{\"dp\":[7,4,\"#00FF00\"]},{\"dp\":[2,5,\"#00FF00\"]},{\"dp\":[3,5,\"#00FF00\"]},{\"dp\":[4,5,\"#00FF00\"]},{\"dp\":[5,5,\"#00FF00\"]},{\"dp\":[1,6,\"#00FF00\"]},{\"dp\":[6,6,\"#00FF00\"]},{\"dp\":[0,7,\"#00FF00\"]},{\"dp\":[7,7,\"#00FF00\"]}]}","tot":"json"},{"t":"set","p":"active","pt":"flow","to":"true","tot":"bool"},{"t":"set","p":"duration","pt":"flow","to":"120","tot":"num"},{"t":"set","p":"delay","pt":"msg","to":"120","tot":"num"}],"action":"","property":"","from":"","to":"","reg":false,"x":520,"y":120,"wires":[["c385a8f2c9a320c8","48786d0be1870435"]]},{"id":"7e5729e0ce2b828f","type":"change","z":"cb45ad9576c38512","name":"delete","rules":[{"t":"set","p":"active","pt":"flow","to":"false","tot":"bool"}],"action":"","property":"","from":"","to":"","reg":false,"x":490,"y":360,"wires":[["c385a8f2c9a320c8"]]},{"id":"4221616079190907","type":"cronplus","z":"cb45ad9576c38512","name":"Every Minute","outputField":"payload","timeZone":"","storeName":"","commandResponseMsgOutput":"output1","defaultLocation":"","defaultLocationType":"default","outputs":1,"options":[{"name":"schedule1","topic":"","payloadType":"date","payload":"","expressionType":"cron","expression":"0 * * * * * *","location":"","offset":"0","solarType":"all","solarEvents":"sunrise,sunset"}],"x":750,"y":40,"wires":[["c385a8f2c9a320c8"]]},{"id":"540282ecbcf45fa7","type":"change","z":"cb45ad9576c38512","name":"format as HH:MM","rules":[{"t":"set","p":"payload","pt":"msg","to":"$merge([\t    $flowContext(\"payload\"),\t    {\t        \"text\": $fromMillis($millis(), \"[H01]:[m02]\", \"+0200\"),\t        \"textOffset\": 5,\t        \"duration\": $flowContext(\"duration\")\t    }\t])","tot":"jsonata"}],"action":"","property":"","from":"","to":"","reg":false,"x":1050,"y":200,"wires":[["7551110871ebe597"]]},{"id":"7551110871ebe597","type":"mqtt out","z":"cb45ad9576c38512","name":"Bump Time on Display","topic":"awtrix_2d6b0c/custom/zvv","qos":"","retain":"","respTopic":"","contentType":"","userProps":"","correl":"","expiry":"","broker":"82d58c550b2694ef","x":1060,"y":100,"wires":[]},{"id":"c385a8f2c9a320c8","type":"switch","z":"cb45ad9576c38512","name":"Is App Active","property":"active","propertyType":"flow","rules":[{"t":"true"},{"t":"false"}],"checkall":"true","repair":false,"outputs":2,"x":910,"y":300,"wires":[["540282ecbcf45fa7"],["b93aed9010474c79"]]},{"id":"a6de75c8a25b7447","type":"mqtt out","z":"cb45ad9576c38512","name":"Update Display","topic":"awtrix_2d6b0c/custom/zvv","qos":"","retain":"","respTopic":"","contentType":"","userProps":"","correl":"","expiry":"","broker":"82d58c550b2694ef","x":1040,"y":500,"wires":[]},{"id":"b93aed9010474c79","type":"change","z":"cb45ad9576c38512","name":"delete app","rules":[{"t":"set","p":"payload","pt":"msg","to":"","tot":"str"}],"action":"","property":"","from":"","to":"","reg":false,"x":1030,"y":400,"wires":[["a6de75c8a25b7447"]]}]
+[
+    {
+        "id": "f6f2187d.f17ca8",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "feb236673896ab73",
+        "type": "tab",
+        "label": "Awtrix Display",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "cb45ad9576c38512",
+        "type": "tab",
+        "label": "Space Invaders",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "82d58c550b2694ef",
+        "type": "mqtt-broker",
+        "name": "mqtt@opi3z",
+        "broker": "mosquitto",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "a18064ad1a4ca206",
+        "type": "mqtt in",
+        "z": "f6f2187d.f17ca8",
+        "name": "buttonRight",
+        "topic": "awtrix_2d6b0c/stats/buttonRight",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "82d58c550b2694ef",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 260,
+        "wires": [
+            [
+                "78be2b1f6e8a1555"
+            ]
+        ]
+    },
+    {
+        "id": "78be2b1f6e8a1555",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "3ae71018d501485e",
+        "type": "mqtt in",
+        "z": "f6f2187d.f17ca8",
+        "name": "buttonRight",
+        "topic": "awtrix_2d6b0c/stats/buttonLeft",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "82d58c550b2694ef",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 360,
+        "wires": [
+            [
+                "78be2b1f6e8a1555"
+            ]
+        ]
+    },
+    {
+        "id": "894766c4825d0894",
+        "type": "cronplus",
+        "z": "feb236673896ab73",
+        "name": "Sunset",
+        "outputField": "payload",
+        "timeZone": "",
+        "storeName": "",
+        "commandResponseMsgOutput": "output1",
+        "defaultLocation": "",
+        "defaultLocationType": "default",
+        "outputs": 1,
+        "options": [
+            {
+                "name": "schedule1",
+                "topic": "topic1",
+                "payloadType": "default",
+                "payload": "",
+                "expressionType": "solar",
+                "expression": "0 * * * * * *",
+                "location": "47.34424804134613 8.529757261276245",
+                "offset": "0",
+                "solarType": "selected",
+                "solarEvents": "sunset"
+            }
+        ],
+        "x": 180,
+        "y": 240,
+        "wires": [
+            [
+                "f554e5fcc32c8755",
+                "0e36eb014952b413"
+            ]
+        ]
+    },
+    {
+        "id": "a43af5ea6e36d161",
+        "type": "cronplus",
+        "z": "feb236673896ab73",
+        "name": "Midnight",
+        "outputField": "payload",
+        "timeZone": "",
+        "storeName": "",
+        "commandResponseMsgOutput": "output1",
+        "defaultLocation": "",
+        "defaultLocationType": "default",
+        "outputs": 1,
+        "options": [
+            {
+                "name": "schedule1",
+                "topic": "topic1",
+                "payloadType": "default",
+                "payload": "",
+                "expressionType": "cron",
+                "expression": "0 55 23 * * * *",
+                "location": "",
+                "offset": "0",
+                "solarType": "all",
+                "solarEvents": "sunrise,sunset"
+            }
+        ],
+        "x": 180,
+        "y": 340,
+        "wires": [
+            [
+                "8f3032210a73b024"
+            ]
+        ]
+    },
+    {
+        "id": "7041f2ccea4512ca",
+        "type": "mqtt out",
+        "z": "feb236673896ab73",
+        "name": "Power Control",
+        "topic": "awtrix_2d6b0c/power",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "82d58c550b2694ef",
+        "x": 860,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "8f3032210a73b024",
+        "type": "change",
+        "z": "feb236673896ab73",
+        "name": "Power Off",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"power\": false}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 340,
+        "wires": [
+            [
+                "7041f2ccea4512ca"
+            ]
+        ]
+    },
+    {
+        "id": "0e36eb014952b413",
+        "type": "change",
+        "z": "feb236673896ab73",
+        "name": "Power On",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"power\": true}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 80,
+        "wires": [
+            [
+                "7041f2ccea4512ca"
+            ]
+        ]
+    },
+    {
+        "id": "ad13047c9aa67991",
+        "type": "cronplus",
+        "z": "feb236673896ab73",
+        "name": "Sunrise",
+        "outputField": "payload",
+        "timeZone": "",
+        "storeName": "",
+        "commandResponseMsgOutput": "output1",
+        "defaultLocation": "",
+        "defaultLocationType": "default",
+        "outputs": 1,
+        "options": [
+            {
+                "name": "schedule1",
+                "topic": "topic1",
+                "payloadType": "default",
+                "payload": "",
+                "expressionType": "solar",
+                "expression": "0 * * * * * *",
+                "location": "47.34424804134613 8.529757261276245",
+                "offset": "0",
+                "solarType": "selected",
+                "solarEvents": "sunrise"
+            }
+        ],
+        "x": 180,
+        "y": 160,
+        "wires": [
+            [
+                "2471aedfa744ae23",
+                "0e36eb014952b413"
+            ]
+        ]
+    },
+    {
+        "id": "195967b5f4ff39d7",
+        "type": "cronplus",
+        "z": "feb236673896ab73",
+        "name": "Morning",
+        "outputField": "payload",
+        "timeZone": "",
+        "storeName": "",
+        "commandResponseMsgOutput": "output1",
+        "defaultLocation": "",
+        "defaultLocationType": "default",
+        "outputs": 1,
+        "options": [
+            {
+                "name": "schedule1",
+                "topic": "topic1",
+                "payloadType": "default",
+                "payload": "",
+                "expressionType": "cron",
+                "expression": "0 0 6 * * * *",
+                "location": "",
+                "offset": "0",
+                "solarType": "all",
+                "solarEvents": "sunrise,sunset"
+            }
+        ],
+        "x": 180,
+        "y": 80,
+        "wires": [
+            [
+                "0e36eb014952b413",
+                "f554e5fcc32c8755"
+            ]
+        ]
+    },
+    {
+        "id": "898f8cebeb9881fa",
+        "type": "mqtt out",
+        "z": "feb236673896ab73",
+        "name": "Settings",
+        "topic": "awtrix_2d6b0c/settings",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "82d58c550b2694ef",
+        "x": 840,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "f554e5fcc32c8755",
+        "type": "change",
+        "z": "feb236673896ab73",
+        "name": "Reduce Brighness",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"ABRI\": false, \"BRI\": 2 }",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 530,
+        "y": 160,
+        "wires": [
+            [
+                "898f8cebeb9881fa"
+            ]
+        ]
+    },
+    {
+        "id": "2471aedfa744ae23",
+        "type": "change",
+        "z": "feb236673896ab73",
+        "name": "Auto Brighness",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"ABRI\": true, \"BRI\": 2 }",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 240,
+        "wires": [
+            [
+                "898f8cebeb9881fa"
+            ]
+        ]
+    },
+    {
+        "id": "48786d0be1870435",
+        "type": "delay",
+        "z": "cb45ad9576c38512",
+        "name": "delay",
+        "pauseType": "delayv",
+        "timeout": "30",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 250,
+        "y": 200,
+        "wires": [
+            [
+                "2d3a70b9b6acc7e9"
+            ]
+        ]
+    },
+    {
+        "id": "2d3a70b9b6acc7e9",
+        "type": "change",
+        "z": "cb45ad9576c38512",
+        "name": "Almost Late :: Yellow",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "flow",
+                "to": "{\"draw\":[{\"dp\":[3,0,\"#FFFF00\"]},{\"dp\":[4,0,\"#FFFF00\"]},{\"dp\":[2,1,\"#FFFF00\"]},{\"dp\":[5,1,\"#FFFF00\"]},{\"dp\":[1,2,\"#FFFF00\"]},{\"dp\":[2,2,\"#FFFF00\"]},{\"dp\":[3,2,\"#FFFF00\"]},{\"dp\":[4,2,\"#FFFF00\"]},{\"dp\":[5,2,\"#FFFF00\"]},{\"dp\":[6,2,\"#FFFF00\"]},{\"dp\":[0,3,\"#FFFF00\"]},{\"dp\":[1,3,\"#FFFF00\"]},{\"dp\":[2,3,\"#000000\"]},{\"dp\":[3,3,\"#FFFF00\"]},{\"dp\":[4,3,\"#FFFF00\"]},{\"dp\":[5,3,\"#000000\"]},{\"dp\":[6,3,\"#FFFF00\"]},{\"dp\":[7,3,\"#FFFF00\"]},{\"dp\":[0,4,\"#FFFF00\"]},{\"dp\":[1,4,\"#FFFF00\"]},{\"dp\":[2,4,\"#FFFF00\"]},{\"dp\":[3,4,\"#FFFF00\"]},{\"dp\":[4,4,\"#FFFF00\"]},{\"dp\":[5,4,\"#FFFF00\"]},{\"dp\":[6,4,\"#FFFF00\"]},{\"dp\":[7,4,\"#FFFF00\"]},{\"dp\":[2,5,\"#FFFF00\"]},{\"dp\":[5,5,\"#FFFF00\"]},{\"dp\":[1,6,\"#FFFF00\"]},{\"dp\":[3,6,\"#FFFF00\"]},{\"dp\":[4,6,\"#FFFF00\"]},{\"dp\":[6,6,\"#FFFF00\"]},{\"dp\":[0,7,\"#FFFF00\"]},{\"dp\":[7,7,\"#FFFF00\"]}]}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "active",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "duration",
+                "pt": "flow",
+                "to": "120",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "delay",
+                "pt": "msg",
+                "to": "120000",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 200,
+        "wires": [
+            [
+                "c385a8f2c9a320c8",
+                "61e1970f3068cbf0"
+            ]
+        ]
+    },
+    {
+        "id": "a566861136c03897",
+        "type": "change",
+        "z": "cb45ad9576c38512",
+        "name": "Too Late :: Red",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "flow",
+                "to": "{\"draw\":[{\"dp\":[3,0,\"#FF0000\"]},{\"dp\":[4,0,\"#FF0000\"]},{\"dp\":[2,1,\"#FF0000\"]},{\"dp\":[3,1,\"#FF0000\"]},{\"dp\":[4,1,\"#FF0000\"]},{\"dp\":[5,1,\"#FF0000\"]},{\"dp\":[1,2,\"#FF0000\"]},{\"dp\":[2,2,\"#FF0000\"]},{\"dp\":[3,2,\"#FF0000\"]},{\"dp\":[4,2,\"#FF0000\"]},{\"dp\":[5,2,\"#FF0000\"]},{\"dp\":[6,2,\"#FF0000\"]},{\"dp\":[1,3,\"#000000\"]},{\"dp\":[2,3,\"#000000\"]},{\"dp\":[3,3,\"#FF0000\"]},{\"dp\":[4,3,\"#FF0000\"]},{\"dp\":[5,3,\"#000000\"]},{\"dp\":[6,3,\"#000000\"]},{\"dp\":[1,4,\"#FF0000\"]},{\"dp\":[2,4,\"#FF0000\"]},{\"dp\":[3,4,\"#FF0000\"]},{\"dp\":[4,4,\"#FF0000\"]},{\"dp\":[5,4,\"#FF0000\"]},{\"dp\":[6,4,\"#FF0000\"]},{\"dp\":[2,5,\"#FF0000\"]},{\"dp\":[5,5,\"#FF0000\"]},{\"dp\":[1,6,\"#FF0000\"]},{\"dp\":[3,6,\"#FF0000\"]},{\"dp\":[4,6,\"#FF0000\"]},{\"dp\":[6,6,\"#FF0000\"]},{\"dp\":[0,7,\"#FF0000\"]},{\"dp\":[2,7,\"#FF0000\"]},{\"dp\":[5,7,\"#FF0000\"]},{\"dp\":[7,7,\"#FF0000\"]}]}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "active",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "duration",
+                "pt": "flow",
+                "to": "120",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "delay",
+                "pt": "msg",
+                "to": "120000",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 280,
+        "wires": [
+            [
+                "c385a8f2c9a320c8",
+                "7ac6cf1b666cf265"
+            ]
+        ]
+    },
+    {
+        "id": "61e1970f3068cbf0",
+        "type": "delay",
+        "z": "cb45ad9576c38512",
+        "name": "delay",
+        "pauseType": "delayv",
+        "timeout": "30",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 250,
+        "y": 280,
+        "wires": [
+            [
+                "a566861136c03897"
+            ]
+        ]
+    },
+    {
+        "id": "7ac6cf1b666cf265",
+        "type": "delay",
+        "z": "cb45ad9576c38512",
+        "name": "delay",
+        "pauseType": "delayv",
+        "timeout": "30",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 250,
+        "y": 360,
+        "wires": [
+            [
+                "7e5729e0ce2b828f"
+            ]
+        ]
+    },
+    {
+        "id": "f7d5891827ce84ec",
+        "type": "cronplus",
+        "z": "cb45ad9576c38512",
+        "name": "",
+        "outputField": "payload",
+        "timeZone": "",
+        "storeName": "",
+        "commandResponseMsgOutput": "output1",
+        "defaultLocation": "",
+        "defaultLocationType": "default",
+        "outputs": 1,
+        "options": [
+            {
+                "name": "schedule1",
+                "topic": "topic1",
+                "payloadType": "default",
+                "payload": "",
+                "expressionType": "cron",
+                "expression": "0 1,8,16,23,31,38,46,53 7,8 * * 1-5",
+                "location": "",
+                "offset": "0",
+                "solarType": "all",
+                "solarEvents": "sunrise,sunset"
+            }
+        ],
+        "x": 140,
+        "y": 80,
+        "wires": [
+            [
+                "e98b50f17e263fc1"
+            ]
+        ]
+    },
+    {
+        "id": "e98b50f17e263fc1",
+        "type": "change",
+        "z": "cb45ad9576c38512",
+        "name": "Ready :: Green",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "flow",
+                "to": "{\"draw\":[{\"dp\":[2,0,\"#00FF00\"]},{\"dp\":[5,0,\"#00FF00\"]},{\"dp\":[3,1,\"#00FF00\"]},{\"dp\":[4,1,\"#00FF00\"]},{\"dp\":[1,2,\"#00FF00\"]},{\"dp\":[2,2,\"#00FF00\"]},{\"dp\":[3,2,\"#00FF00\"]},{\"dp\":[4,2,\"#00FF00\"]},{\"dp\":[5,2,\"#00FF00\"]},{\"dp\":[6,2,\"#00FF00\"]},{\"dp\":[0,3,\"#00FF00\"]},{\"dp\":[1,3,\"#00FF00\"]},{\"dp\":[2,3,\"#000000\"]},{\"dp\":[3,3,\"#00FF00\"]},{\"dp\":[4,3,\"#00FF00\"]},{\"dp\":[5,3,\"#000000\"]},{\"dp\":[6,3,\"#00FF00\"]},{\"dp\":[7,3,\"#00FF00\"]},{\"dp\":[0,4,\"#00FF00\"]},{\"dp\":[1,4,\"#00FF00\"]},{\"dp\":[2,4,\"#00FF00\"]},{\"dp\":[3,4,\"#00FF00\"]},{\"dp\":[4,4,\"#00FF00\"]},{\"dp\":[5,4,\"#00FF00\"]},{\"dp\":[6,4,\"#00FF00\"]},{\"dp\":[7,4,\"#00FF00\"]},{\"dp\":[2,5,\"#00FF00\"]},{\"dp\":[3,5,\"#00FF00\"]},{\"dp\":[4,5,\"#00FF00\"]},{\"dp\":[5,5,\"#00FF00\"]},{\"dp\":[1,6,\"#00FF00\"]},{\"dp\":[6,6,\"#00FF00\"]},{\"dp\":[0,7,\"#00FF00\"]},{\"dp\":[7,7,\"#00FF00\"]}]}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "active",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "duration",
+                "pt": "flow",
+                "to": "120",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "delay",
+                "pt": "msg",
+                "to": "120000",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 120,
+        "wires": [
+            [
+                "c385a8f2c9a320c8",
+                "48786d0be1870435"
+            ]
+        ]
+    },
+    {
+        "id": "7e5729e0ce2b828f",
+        "type": "change",
+        "z": "cb45ad9576c38512",
+        "name": "delete",
+        "rules": [
+            {
+                "t": "set",
+                "p": "active",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 360,
+        "wires": [
+            [
+                "c385a8f2c9a320c8"
+            ]
+        ]
+    },
+    {
+        "id": "4221616079190907",
+        "type": "cronplus",
+        "z": "cb45ad9576c38512",
+        "name": "Every Minute",
+        "outputField": "payload",
+        "timeZone": "",
+        "storeName": "",
+        "commandResponseMsgOutput": "output1",
+        "defaultLocation": "",
+        "defaultLocationType": "default",
+        "outputs": 1,
+        "options": [
+            {
+                "name": "schedule1",
+                "topic": "",
+                "payloadType": "date",
+                "payload": "",
+                "expressionType": "cron",
+                "expression": "0 * * * * * *",
+                "location": "",
+                "offset": "0",
+                "solarType": "all",
+                "solarEvents": "sunrise,sunset"
+            }
+        ],
+        "x": 750,
+        "y": 40,
+        "wires": [
+            [
+                "c385a8f2c9a320c8"
+            ]
+        ]
+    },
+    {
+        "id": "540282ecbcf45fa7",
+        "type": "change",
+        "z": "cb45ad9576c38512",
+        "name": "format as HH:MM",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$merge([\t    $flowContext(\"payload\"),\t    {\t        \"text\": $fromMillis($millis(), \"[H01]:[m02]\", \"+0200\"),\t        \"textOffset\": 5,\t        \"duration\": $flowContext(\"duration\")\t    }\t])",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1050,
+        "y": 200,
+        "wires": [
+            [
+                "7551110871ebe597"
+            ]
+        ]
+    },
+    {
+        "id": "7551110871ebe597",
+        "type": "mqtt out",
+        "z": "cb45ad9576c38512",
+        "name": "Bump Time on Display",
+        "topic": "awtrix_2d6b0c/custom/zvv",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "82d58c550b2694ef",
+        "x": 1060,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "c385a8f2c9a320c8",
+        "type": "switch",
+        "z": "cb45ad9576c38512",
+        "name": "Is App Active",
+        "property": "active",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 910,
+        "y": 300,
+        "wires": [
+            [
+                "540282ecbcf45fa7"
+            ],
+            [
+                "b93aed9010474c79"
+            ]
+        ]
+    },
+    {
+        "id": "a6de75c8a25b7447",
+        "type": "mqtt out",
+        "z": "cb45ad9576c38512",
+        "name": "Update Display",
+        "topic": "awtrix_2d6b0c/custom/zvv",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "82d58c550b2694ef",
+        "x": 1040,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "b93aed9010474c79",
+        "type": "change",
+        "z": "cb45ad9576c38512",
+        "name": "delete app",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1030,
+        "y": 400,
+        "wires": [
+            [
+                "a6de75c8a25b7447"
+            ]
+        ]
+    },
+    {
+        "id": "b9605ca0c87931a5",
+        "type": "inject",
+        "z": "cb45ad9576c38512",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    }
+]

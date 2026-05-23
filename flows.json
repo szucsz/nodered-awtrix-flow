@@ -9,7 +9,7 @@
     {
         "id": "feb236673896ab73",
         "type": "tab",
-        "label": "Awtrix Display",
+        "label": "Awtrix Display Control",
         "disabled": false,
         "info": "",
         "env": []
@@ -307,7 +307,7 @@
                 "payloadType": "default",
                 "payload": "",
                 "expressionType": "cron",
-                "expression": "0 0 6 * * * *",
+                "expression": "0 0 5 * * * *",
                 "location": "",
                 "offset": "0",
                 "solarType": "all",

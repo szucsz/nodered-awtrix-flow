@@ -835,7 +835,7 @@
         "id": "99080cb90971f4a2",
         "type": "cronplus",
         "z": "cb45ad9576c38512",
-        "name": "Trigger every 3 minutes",
+        "name": "Trigger every 5 minutes",
         "outputField": "payload",
         "timeZone": "",
         "storeName": "",
@@ -850,7 +850,7 @@
                 "payloadType": "default",
                 "payload": "",
                 "expressionType": "cron",
-                "expression": "0 */3 * * * * *",
+                "expression": "0 */5 * * * * *",
                 "location": "",
                 "offset": "0",
                 "solarType": "all",
@@ -858,7 +858,7 @@
             }
         ],
         "x": 210,
-        "y": 600,
+        "y": 520,
         "wires": [
             [
                 "5f4d5d4859a87ab2"
@@ -883,8 +883,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 430,
-        "y": 600,
+        "x": 190,
+        "y": 620,
         "wires": [
             [
                 "7e571ac4095d9a28"
@@ -908,11 +908,12 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 860,
+        "x": 680,
         "y": 600,
         "wires": [
             [
-                "93018975c0e30839"
+                "93018975c0e30839",
+                "d25e0bd2755e351a"
             ]
         ]
     },
@@ -928,7 +929,7 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1080,
+        "x": 1000,
         "y": 600,
         "wires": []
     },
@@ -975,12 +976,83 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 630,
+        "x": 410,
         "y": 600,
         "wires": [
             [
                 "497f4afc8d9207e2"
             ]
         ]
+    },
+    {
+        "id": "d25e0bd2755e351a",
+        "type": "function",
+        "z": "cb45ad9576c38512",
+        "name": "state machine",
+        "func": "// --- 1. HANDLE API REFRESH DATA ---\n// If the message came from the API HTTP Request, update our cache\nif (msg.payload && msg.payload.connections) {\n    let connections = msg.payload.connections;\n\n    // Cache up to the next 4 departures (extracting departure timestamps)\n    let departureCache = [];\n    for (let i = 0; i < Math.min(connections.length, 4); i++) {\n        if (connections[i].from && connections[i].from.departure) {\n            departureCache.push(connections[i].from.departure);\n        }\n    }\n\n    // Save the 4 departures to context storage\n    context.set('departureCache', departureCache);\n    node.status({ fill: \"blue\", shape: \"dot\", text: `Cached ${departureCache.length} departures` });\n}\n\n// --- 2. EVALUATE STATE MACHINE ---\n// Retrieve our cached departures\nlet departures = context.get('departureCache') || [];\n\nif (departures.length === 0) {\n    node.status({ fill: \"red\", shape: \"ring\", text: \"No departures cached yet\" });\n    return null;\n}\n\nconst now = new Date();\nlet nextDepartureStr = null;\n\n// Clean up stale (past) departures from our cache\nwhile (departures.length > 0) {\n    let depTime = new Date(departures[0]);\n    if (depTime > now) {\n        nextDepartureStr = departures[0];\n        break; // Found our closest upcoming departure\n    } else {\n        departures.shift(); // Remove past departure\n    }\n}\ncontext.set('departureCache', departures); // Resave cleaned cache\n\n// If all cached departures are in the past, wait for the next 5-min API refresh\nif (!nextDepartureStr) {\n    node.status({ fill: \"yellow\", shape: \"ring\", text: \"All cached departures passed\" });\n    return null;\n}\n\n// Calculate time window variables\nconst departureTime = new Date(nextDepartureStr);\nconst msUntilDeparture = departureTime.getTime() - now.getTime();\nconst minsUntilDeparture = msUntilDeparture / 60000;\n\nlet displayValue = \"\";\nlet nextStateTransitionTime = null;\n\n// State Machine Condition Rules\nif (minsUntilDeparture > 4) {\n    // STATE 0: More than 4 minutes out\n    displayValue = \"green\";\n    // Next transition happens exactly when we hit the 4-minute mark\n    nextStateTransitionTime = new Date(departureTime.getTime() - (4 * 60000));\n} else if (minsUntilDeparture > 2) {\n    // STATE 1: Between 2 and 4 minutes out\n    displayValue = \"yellow\";\n    // Next transition happens exactly when we hit the 2-minute mark\n    nextStateTransitionTime = new Date(departureTime.getTime() - (2 * 60000));\n} else {\n    // STATE 3: Less than 2 minutes out\n    displayValue = \"red\";\n    // Next transition happens when the train leaves (drops back to looking for next train)\n    nextStateTransitionTime = departureTime;\n}\n\n// Update the flow variable for your layout / dashboard\nflow.set('display', displayValue);\nnode.status({ fill: \"green\", shape: \"dot\", text: `Display: ${displayValue} (${Math.round(minsUntilDeparture)}m left)` });\n\n// --- 3. SCHEDULE NEXT TRANSITION ---\n// We tell cron-plus to fire a message right back into this function node at the transition moment\nif (nextStateTransitionTime && nextStateTransitionTime > now) {\n    msg.payload = {\n        command: \"add\",\n        name: \"StateMachineTransition\",\n        type: \"date\",\n        expression: nextStateTransitionTime,\n        payload: \"trigger_state_check\" // Sent back into this node to re-evaluate state\n    };\n    return msg;\n}\n\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 720,
+        "wires": [
+            [
+                "f5586483da186a6b"
+            ]
+        ]
+    },
+    {
+        "id": "f5586483da186a6b",
+        "type": "cronplus",
+        "z": "cb45ad9576c38512",
+        "name": "",
+        "outputField": "payload",
+        "timeZone": "",
+        "storeName": "",
+        "commandResponseMsgOutput": "output1",
+        "defaultLocation": "",
+        "defaultLocationType": "default",
+        "outputs": 1,
+        "options": [
+            {
+                "name": "schedule1",
+                "topic": "topic1",
+                "payloadType": "default",
+                "payload": "",
+                "expressionType": "cron",
+                "expression": "0 * * * * * *",
+                "location": "",
+                "offset": "0",
+                "solarType": "all",
+                "solarEvents": "sunrise,sunset"
+            }
+        ],
+        "x": 940,
+        "y": 720,
+        "wires": [
+            [
+                "d25e0bd2755e351a",
+                "a216e45bbf1996d9"
+            ]
+        ]
+    },
+    {
+        "id": "a216e45bbf1996d9",
+        "type": "debug",
+        "z": "cb45ad9576c38512",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1180,
+        "y": 720,
+        "wires": []
     }
 ]

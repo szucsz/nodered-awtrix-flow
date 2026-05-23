@@ -692,7 +692,7 @@
         "id": "d25e0bd2755e351a",
         "type": "function",
         "z": "cb45ad9576c38512",
-        "name": "state machine",
+        "name": "cache api response",
         "func": "if (msg.payload && msg.payload.connections) {\n    let connections = msg.payload.connections;\n\n    // Cache up to the next 4 departures (extracting departure timestamps)\n    let departureCache = [];\n    for (let i = 0; i < Math.min(connections.length, 4); i++) {\n        if (connections[i].from && connections[i].from.departure) {\n            departureCache.push(connections[i].from.departure);\n        }\n    }\n\n    // Save the 4 departures to context storage\n    context.set('departureCache', departureCache);\n    node.status({ fill: \"blue\", shape: \"dot\", text: `Cached ${departureCache.length} departures` });\n    node.warn(`Cached ${departureCache.length} departures`);\n} else {\n    node.status({ fill: \"red\", shape: \"dot\", text: `no api payload received` });\n}",
         "outputs": 1,
         "timeout": 0,
@@ -700,7 +700,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 780,
+        "x": 790,
         "y": 740,
         "wires": [
             [

@@ -445,7 +445,7 @@
         "outputs": 1,
         "options": [
             {
-                "name": "schedule1",
+                "name": "clock",
                 "topic": "topic1",
                 "payloadType": "date",
                 "payload": "",

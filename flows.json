@@ -832,7 +832,7 @@
         "repair": false,
         "outputs": 2,
         "x": 200,
-        "y": 400,
+        "y": 380,
         "wires": [
             [
                 "f5263ef7bb4b07e9"
@@ -873,7 +873,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 150,
-        "y": 480,
+        "y": 440,
         "wires": [
             [
                 "fb1858dcbffc9da6"
@@ -899,11 +899,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 400,
+        "x": 480,
         "y": 540,
         "wires": [
             [
-                "7e571ac4095d9a28"
+                "7e571ac4095d9a28",
+                "974b12b043fc280d"
             ]
         ]
     },
@@ -926,11 +927,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 400,
+        "x": 480,
         "y": 480,
         "wires": [
             [
-                "b93aed9010474c79"
+                "b93aed9010474c79",
+                "974b12b043fc280d"
             ]
         ]
     },
@@ -951,7 +953,7 @@
         "y": 580,
         "wires": [
             [
-                "016bd23c63f9372e"
+                "70a46138b7a5f9d1"
             ]
         ]
     },
@@ -969,11 +971,77 @@
         "rh": 0,
         "inputs": 0,
         "x": 100,
-        "y": 440,
+        "y": 480,
+        "wires": [
+            [
+                "b9f78c003e7f4cdd"
+            ]
+        ]
+    },
+    {
+        "id": "b9f78c003e7f4cdd",
+        "type": "switch",
+        "z": "cb45ad9576c38512",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 250,
+        "y": 480,
         "wires": [
             [
                 "fb1858dcbffc9da6"
             ]
         ]
+    },
+    {
+        "id": "70a46138b7a5f9d1",
+        "type": "switch",
+        "z": "cb45ad9576c38512",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 270,
+        "y": 580,
+        "wires": [
+            [
+                "016bd23c63f9372e"
+            ]
+        ]
+    },
+    {
+        "id": "974b12b043fc280d",
+        "type": "debug",
+        "z": "cb45ad9576c38512",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 500,
+        "wires": []
     }
 ]

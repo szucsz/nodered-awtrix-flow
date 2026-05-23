@@ -828,7 +828,7 @@
         "props": [],
         "repeat": "",
         "crontab": "00 07 * * 1,2,3,4,5",
-        "once": false,
+        "once": true,
         "onceDelay": 0.1,
         "topic": "",
         "x": 250,

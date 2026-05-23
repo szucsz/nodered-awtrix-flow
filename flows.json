@@ -987,5 +987,93 @@
                 "b93aed9010474c79"
             ]
         ]
+    },
+    {
+        "id": "8eddb05cf6069f29",
+        "type": "inject",
+        "z": "cb45ad9576c38512",
+        "name": "Start departures display",
+        "props": [],
+        "repeat": "",
+        "crontab": "00 07 * * 1,2,3,4,5",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 210,
+        "y": 820,
+        "wires": [
+            [
+                "016bd23c63f9372e"
+            ]
+        ]
+    },
+    {
+        "id": "7a4d0d8a4c2b1d02",
+        "type": "inject",
+        "z": "cb45ad9576c38512",
+        "name": "Stop departures display",
+        "props": [],
+        "repeat": "",
+        "crontab": "00 07 * * 1,2,3,4,5",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 210,
+        "y": 900,
+        "wires": [
+            [
+                "fb1858dcbffc9da6"
+            ]
+        ]
+    },
+    {
+        "id": "016bd23c63f9372e",
+        "type": "change",
+        "z": "cb45ad9576c38512",
+        "name": "Departure display on",
+        "rules": [
+            {
+                "t": "set",
+                "p": "active",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fb1858dcbffc9da6",
+        "type": "change",
+        "z": "cb45ad9576c38512",
+        "name": "Departure display off",
+        "rules": [
+            {
+                "t": "set",
+                "p": "active",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 900,
+        "wires": [
+            []
+        ]
     }
 ]

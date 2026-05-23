@@ -562,12 +562,25 @@
         "name": "Trigger API refresh",
         "outputField": "payload",
         "timeZone": "",
-        "storeName": "",
+        "storeName": "memory",
         "commandResponseMsgOutput": "output1",
         "defaultLocation": "",
         "defaultLocationType": "default",
         "outputs": 1,
-        "options": [],
+        "options": [
+            {
+                "name": "api refresh",
+                "topic": "topic1",
+                "payloadType": "default",
+                "payload": "",
+                "expressionType": "cron",
+                "expression": "50 */5 * * * * *",
+                "location": "",
+                "offset": "0",
+                "solarType": "all",
+                "solarEvents": "sunrise,sunset"
+            }
+        ],
         "x": 210,
         "y": 660,
         "wires": [
@@ -893,7 +906,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "{\"command\":\"add\",\"name\":\"API refresh\",\"type\":\"cron\",\"expression\":\"50 */5 * * * * *\"}",
+                "to": "{\"command\":\"add\",\"name\":\"API refresh\",\"expression\":\"50 */5 * * * * *\",\"payloadType\":\"default\"}",
                 "tot": "json"
             }
         ],
@@ -907,7 +920,7 @@
         "wires": [
             [
                 "c703b878c0218acc",
-                "99080cb90971f4a2"
+                "1e6b6ec708b3a2bb"
             ]
         ]
     },
@@ -1064,5 +1077,32 @@
         "x": 790,
         "y": 540,
         "wires": []
+    },
+    {
+        "id": "1e6b6ec708b3a2bb",
+        "type": "change",
+        "z": "cb45ad9576c38512",
+        "name": "Departure display on",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"command\":\"add\",\"name\":\"API refresh\",\"expression\":\"50 */5 * * * * *\",\"payloadType\":\"default\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 220,
+        "y": 620,
+        "wires": [
+            [
+                "99080cb90971f4a2"
+            ]
+        ]
     }
 ]

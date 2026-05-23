@@ -887,7 +887,7 @@
         "y": 600,
         "wires": [
             [
-                "497f4afc8d9207e2"
+                "7e571ac4095d9a28"
             ],
             []
         ]
@@ -908,7 +908,7 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 680,
+        "x": 820,
         "y": 600,
         "wires": [
             [
@@ -928,7 +928,7 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 960,
+        "x": 1040,
         "y": 600,
         "wires": []
     },
@@ -939,15 +939,15 @@
         "name": "Initialize Locations",
         "properties": [
             {
-                "p": "locationFrom",
+                "p": "departureStation",
                 "pt": "flow",
                 "to": "Renggerstrasse",
                 "tot": "str"
             },
             {
-                "p": "locationTo",
+                "p": "arrivalStation",
                 "pt": "flow",
-                "to": "Zurich HB",
+                "to": "Zurich, Bahnhofstrasse/HB",
                 "tot": "str"
             }
         ],
@@ -955,5 +955,32 @@
         "x": 210,
         "y": 740,
         "wires": []
+    },
+    {
+        "id": "7e571ac4095d9a28",
+        "type": "change",
+        "z": "cb45ad9576c38512",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "\"https://transport.opendata.ch/v1/connections?from=\" & $flowContext(\"departureStation\") & \"&to=\" & $flowContext(\"arrivalStation\")",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 680,
+        "wires": [
+            [
+                "497f4afc8d9207e2"
+            ]
+        ]
     }
 ]

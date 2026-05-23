@@ -1,12 +1,5 @@
 [
     {
-        "id": "f6f2187d.f17ca8",
-        "type": "tab",
-        "label": "Flow 1",
-        "disabled": false,
-        "info": ""
-    },
-    {
         "id": "feb236673896ab73",
         "type": "tab",
         "label": "Awtrix Display Control",
@@ -52,65 +45,6 @@
         "willMsg": {},
         "userProps": "",
         "sessionExpiry": ""
-    },
-    {
-        "id": "a18064ad1a4ca206",
-        "type": "mqtt in",
-        "z": "f6f2187d.f17ca8",
-        "name": "buttonRight",
-        "topic": "awtrix_2d6b0c/stats/buttonRight",
-        "qos": "2",
-        "datatype": "utf8",
-        "broker": "82d58c550b2694ef",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 260,
-        "wires": [
-            [
-                "78be2b1f6e8a1555"
-            ]
-        ]
-    },
-    {
-        "id": "78be2b1f6e8a1555",
-        "type": "debug",
-        "z": "f6f2187d.f17ca8",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 420,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "3ae71018d501485e",
-        "type": "mqtt in",
-        "z": "f6f2187d.f17ca8",
-        "name": "buttonRight",
-        "topic": "awtrix_2d6b0c/stats/buttonLeft",
-        "qos": "2",
-        "datatype": "utf8",
-        "broker": "82d58c550b2694ef",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 360,
-        "wires": [
-            [
-                "78be2b1f6e8a1555"
-            ]
-        ]
     },
     {
         "id": "894766c4825d0894",
@@ -698,8 +632,8 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 680,
-        "y": 760,
+        "x": 700,
+        "y": 720,
         "wires": [
             [
                 "93018975c0e30839",
@@ -720,7 +654,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1000,
-        "y": 760,
+        "y": 720,
         "wires": []
     },
     {
@@ -767,7 +701,7 @@
         "to": "",
         "reg": false,
         "x": 450,
-        "y": 740,
+        "y": 720,
         "wires": [
             [
                 "497f4afc8d9207e2"
@@ -997,6 +931,48 @@
         "wires": [
             [
                 "b93aed9010474c79"
+            ]
+        ]
+    },
+    {
+        "id": "a18064ad1a4ca206",
+        "type": "mqtt in",
+        "z": "cb45ad9576c38512",
+        "name": "buttonRight",
+        "topic": "awtrix_2d6b0c/stats/buttonRight",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "82d58c550b2694ef",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 580,
+        "wires": [
+            [
+                "016bd23c63f9372e"
+            ]
+        ]
+    },
+    {
+        "id": "3ae71018d501485e",
+        "type": "mqtt in",
+        "z": "cb45ad9576c38512",
+        "name": "buttonLeft",
+        "topic": "awtrix_2d6b0c/stats/buttonLeft",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "82d58c550b2694ef",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 440,
+        "wires": [
+            [
+                "fb1858dcbffc9da6"
             ]
         ]
     }

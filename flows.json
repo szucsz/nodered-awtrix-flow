@@ -355,8 +355,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 660,
-        "y": 340,
+        "x": 980,
+        "y": 320,
         "wires": [
             [
                 "540282ecbcf45fa7"
@@ -389,8 +389,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 640,
-        "y": 380,
+        "x": 960,
+        "y": 360,
         "wires": [
             [
                 "540282ecbcf45fa7"
@@ -423,8 +423,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 640,
-        "y": 300,
+        "x": 960,
+        "y": 280,
         "wires": [
             [
                 "540282ecbcf45fa7"
@@ -445,7 +445,7 @@
         "outputs": 1,
         "options": [
             {
-                "name": "clock",
+                "name": "schedule",
                 "topic": "topic1",
                 "payloadType": "date",
                 "payload": "",
@@ -457,8 +457,8 @@
                 "solarEvents": "sunrise,sunset"
             }
         ],
-        "x": 180,
-        "y": 240,
+        "x": 560,
+        "y": 140,
         "wires": [
             [
                 "a1d33458342c2938"
@@ -484,8 +484,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 970,
-        "y": 340,
+        "x": 1290,
+        "y": 320,
         "wires": [
             [
                 "7551110871ebe597"
@@ -506,8 +506,8 @@
         "correl": "",
         "expiry": "",
         "broker": "82d58c550b2694ef",
-        "x": 1220,
-        "y": 340,
+        "x": 1540,
+        "y": 320,
         "wires": []
     },
     {
@@ -524,8 +524,8 @@
         "correl": "",
         "expiry": "",
         "broker": "82d58c550b2694ef",
-        "x": 1200,
-        "y": 420,
+        "x": 1520,
+        "y": 400,
         "wires": []
     },
     {
@@ -547,8 +547,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 630,
-        "y": 420,
+        "x": 950,
+        "y": 400,
         "wires": [
             [
                 "a6de75c8a25b7447"
@@ -569,7 +569,7 @@
         "outputs": 1,
         "options": [
             {
-                "name": "api refresh",
+                "name": "schedule",
                 "topic": "topic1",
                 "payloadType": "default",
                 "payload": "",
@@ -581,8 +581,8 @@
                 "solarEvents": "sunrise,sunset"
             }
         ],
-        "x": 210,
-        "y": 660,
+        "x": 530,
+        "y": 640,
         "wires": [
             [
                 "5f4d5d4859a87ab2"
@@ -607,8 +607,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 200,
-        "y": 740,
+        "x": 520,
+        "y": 720,
         "wires": [
             [
                 "7e571ac4095d9a28"
@@ -632,8 +632,8 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 700,
-        "y": 720,
+        "x": 1020,
+        "y": 700,
         "wires": [
             [
                 "93018975c0e30839",
@@ -654,8 +654,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1040,
-        "y": 720,
+        "x": 1360,
+        "y": 700,
         "wires": []
     },
     {
@@ -678,8 +678,8 @@
             }
         ],
         "active": true,
-        "x": 210,
-        "y": 900,
+        "x": 530,
+        "y": 880,
         "wires": []
     },
     {
@@ -701,8 +701,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 450,
-        "y": 720,
+        "x": 770,
+        "y": 700,
         "wires": [
             [
                 "497f4afc8d9207e2"
@@ -721,8 +721,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 680,
-        "y": 880,
+        "x": 1000,
+        "y": 860,
         "wires": [
             [
                 "f5586483da186a6b",
@@ -743,8 +743,8 @@
         "defaultLocationType": "default",
         "outputs": 1,
         "options": [],
-        "x": 940,
-        "y": 880,
+        "x": 1260,
+        "y": 860,
         "wires": [
             [
                 "d25e0bd2755e351a"
@@ -764,8 +764,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1040,
-        "y": 820,
+        "x": 1360,
+        "y": 800,
         "wires": []
     },
     {
@@ -798,8 +798,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 4,
-        "x": 430,
-        "y": 360,
+        "x": 750,
+        "y": 340,
         "wires": [
             [
                 "e98b50f17e263fc1"
@@ -833,8 +833,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 200,
-        "y": 380,
+        "x": 520,
+        "y": 360,
         "wires": [
             [
                 "f5263ef7bb4b07e9"
@@ -855,8 +855,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 150,
-        "y": 540,
+        "x": 470,
+        "y": 520,
         "wires": [
             [
                 "016bd23c63f9372e"
@@ -874,8 +874,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 150,
-        "y": 440,
+        "x": 470,
+        "y": 420,
         "wires": [
             [
                 "fb1858dcbffc9da6"
@@ -901,13 +901,6 @@
                 "pt": "flow",
                 "to": "",
                 "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "{\"command\":\"add\",\"name\":\"API refresh\",\"expression\":\"50 */5 * * * * *\",\"payloadType\":\"default\"}",
-                "tot": "json"
             }
         ],
         "action": "",
@@ -915,8 +908,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 480,
-        "y": 540,
+        "x": 800,
+        "y": 520,
         "wires": [
             [
                 "c703b878c0218acc",
@@ -943,12 +936,13 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 480,
-        "y": 480,
+        "x": 800,
+        "y": 460,
         "wires": [
             [
                 "b93aed9010474c79",
-                "974b12b043fc280d"
+                "974b12b043fc280d",
+                "29529dda8b697196"
             ]
         ]
     },
@@ -965,8 +959,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 110,
-        "y": 580,
+        "x": 430,
+        "y": 560,
         "wires": [
             [
                 "70a46138b7a5f9d1"
@@ -986,8 +980,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 100,
-        "y": 480,
+        "x": 420,
+        "y": 460,
         "wires": [
             [
                 "b9f78c003e7f4cdd"
@@ -1011,8 +1005,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 250,
-        "y": 480,
+        "x": 570,
+        "y": 460,
         "wires": [
             [
                 "fb1858dcbffc9da6"
@@ -1036,8 +1030,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 270,
-        "y": 580,
+        "x": 590,
+        "y": 560,
         "wires": [
             [
                 "016bd23c63f9372e"
@@ -1057,8 +1051,8 @@
         "targetType": "jsonata",
         "statusVal": "",
         "statusType": "auto",
-        "x": 790,
-        "y": 480,
+        "x": 1110,
+        "y": 460,
         "wires": []
     },
     {
@@ -1074,21 +1068,21 @@
         "targetType": "jsonata",
         "statusVal": "",
         "statusType": "auto",
-        "x": 790,
-        "y": 540,
+        "x": 1110,
+        "y": 520,
         "wires": []
     },
     {
         "id": "1e6b6ec708b3a2bb",
         "type": "change",
         "z": "cb45ad9576c38512",
-        "name": "Departure display on",
+        "name": "start schedule",
         "rules": [
             {
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "{\"command\":\"add\",\"name\":\"API refresh\",\"expression\":\"50 */5 * * * * *\",\"payloadType\":\"default\"}",
+                "to": "{\"command\":\"start\",\"name\":\"schedule\"}",
                 "tot": "json"
             }
         ],
@@ -1097,10 +1091,39 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 220,
-        "y": 620,
+        "x": 200,
+        "y": 160,
         "wires": [
             [
+                "99080cb90971f4a2",
+                "4221616079190907"
+            ]
+        ]
+    },
+    {
+        "id": "29529dda8b697196",
+        "type": "change",
+        "z": "cb45ad9576c38512",
+        "name": "stop schedule",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"command\":\"stop\",\"name\":\"schedule\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 180,
+        "y": 300,
+        "wires": [
+            [
+                "4221616079190907",
                 "99080cb90971f4a2"
             ]
         ]

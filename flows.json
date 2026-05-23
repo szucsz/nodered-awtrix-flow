@@ -559,7 +559,7 @@
         "id": "99080cb90971f4a2",
         "type": "cronplus",
         "z": "cb45ad9576c38512",
-        "name": "Trigger every 5 minutes",
+        "name": "Trigger API refresh",
         "outputField": "payload",
         "timeZone": "",
         "storeName": "",
@@ -567,21 +567,8 @@
         "defaultLocation": "",
         "defaultLocationType": "default",
         "outputs": 1,
-        "options": [
-            {
-                "name": "schedule1",
-                "topic": "topic1",
-                "payloadType": "default",
-                "payload": "",
-                "expressionType": "cron",
-                "expression": "50 */5 * * * * *",
-                "location": "",
-                "offset": "0",
-                "solarType": "all",
-                "solarEvents": "sunrise,sunset"
-            }
-        ],
-        "x": 190,
+        "options": [],
+        "x": 170,
         "y": 640,
         "wires": [
             [
@@ -901,6 +888,13 @@
                 "pt": "flow",
                 "to": "",
                 "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"command\":\"add\",\"name\":\"API refresh\",\"type\":\"cron\",\"expression\":\"50 */5 * * * * *\"}",
+                "tot": "json"
             }
         ],
         "action": "",

@@ -568,8 +568,8 @@
         "defaultLocationType": "default",
         "outputs": 1,
         "options": [],
-        "x": 170,
-        "y": 640,
+        "x": 210,
+        "y": 660,
         "wires": [
             [
                 "5f4d5d4859a87ab2"
@@ -594,7 +594,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 180,
+        "x": 200,
         "y": 740,
         "wires": [
             [
@@ -906,8 +906,8 @@
         "y": 540,
         "wires": [
             [
-                "7e571ac4095d9a28",
-                "c703b878c0218acc"
+                "c703b878c0218acc",
+                "99080cb90971f4a2"
             ]
         ]
     },

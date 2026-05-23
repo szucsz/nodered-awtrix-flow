@@ -659,7 +659,7 @@
         "id": "5f4d5d4859a87ab2",
         "type": "switch",
         "z": "cb45ad9576c38512",
-        "name": "Is App Active",
+        "name": "Is Display On?",
         "property": "active",
         "propertyType": "flow",
         "rules": [
@@ -673,7 +673,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 170,
+        "x": 180,
         "y": 740,
         "wires": [
             [
@@ -969,7 +969,6 @@
         "y": 540,
         "wires": [
             [
-                "f5263ef7bb4b07e9",
                 "7e571ac4095d9a28"
             ]
         ]

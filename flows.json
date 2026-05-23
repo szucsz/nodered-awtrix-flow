@@ -166,7 +166,7 @@
                 "payloadType": "default",
                 "payload": "",
                 "expressionType": "cron",
-                "expression": "0 55 23 * * * *",
+                "expression": "0 55 22 * * * *",
                 "location": "",
                 "offset": "0",
                 "solarType": "all",

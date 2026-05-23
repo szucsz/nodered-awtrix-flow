@@ -796,7 +796,6 @@
         "y": 260,
         "wires": [
             [
-                "c703b878c0218acc",
                 "1e6b6ec708b3a2bb"
             ]
         ]
@@ -825,7 +824,6 @@
         "wires": [
             [
                 "b93aed9010474c79",
-                "974b12b043fc280d",
                 "29529dda8b697196"
             ]
         ]
@@ -921,40 +919,6 @@
                 "016bd23c63f9372e"
             ]
         ]
-    },
-    {
-        "id": "974b12b043fc280d",
-        "type": "debug",
-        "z": "cb45ad9576c38512",
-        "name": "debug switch off",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "$flowContext(\"active\")",
-        "targetType": "jsonata",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 890,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "c703b878c0218acc",
-        "type": "debug",
-        "z": "cb45ad9576c38512",
-        "name": "debug switch on",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "$flowContext(\"active\")",
-        "targetType": "jsonata",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 890,
-        "y": 140,
-        "wires": []
     },
     {
         "id": "1e6b6ec708b3a2bb",

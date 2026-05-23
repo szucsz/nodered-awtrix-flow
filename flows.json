@@ -830,5 +830,130 @@
                 "a6de75c8a25b7447"
             ]
         ]
+    },
+    {
+        "id": "99080cb90971f4a2",
+        "type": "cronplus",
+        "z": "cb45ad9576c38512",
+        "name": "Trigger every 3 minutes",
+        "outputField": "payload",
+        "timeZone": "",
+        "storeName": "",
+        "commandResponseMsgOutput": "output1",
+        "defaultLocation": "",
+        "defaultLocationType": "default",
+        "outputs": 1,
+        "options": [
+            {
+                "name": "schedule1",
+                "topic": "topic1",
+                "payloadType": "default",
+                "payload": "",
+                "expressionType": "cron",
+                "expression": "0 */3 * * * * *",
+                "location": "",
+                "offset": "0",
+                "solarType": "all",
+                "solarEvents": "sunrise,sunset"
+            }
+        ],
+        "x": 210,
+        "y": 600,
+        "wires": [
+            [
+                "5f4d5d4859a87ab2"
+            ]
+        ]
+    },
+    {
+        "id": "5f4d5d4859a87ab2",
+        "type": "switch",
+        "z": "cb45ad9576c38512",
+        "name": "Is App Active",
+        "property": "active",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 430,
+        "y": 600,
+        "wires": [
+            [
+                "497f4afc8d9207e2"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "497f4afc8d9207e2",
+        "type": "http request",
+        "z": "cb45ad9576c38512",
+        "name": "call transport.opendata.ch",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://transport.opendata.ch/v1/connections?from=Renggerstrasse&to=Zurich HB",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 680,
+        "y": 600,
+        "wires": [
+            [
+                "93018975c0e30839"
+            ]
+        ]
+    },
+    {
+        "id": "93018975c0e30839",
+        "type": "debug",
+        "z": "cb45ad9576c38512",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "e315cc05bdd75248",
+        "type": "config",
+        "z": "cb45ad9576c38512",
+        "name": "Initialize Locations",
+        "properties": [
+            {
+                "p": "locationFrom",
+                "pt": "flow",
+                "to": "Renggerstrasse",
+                "tot": "str"
+            },
+            {
+                "p": "locationTo",
+                "pt": "flow",
+                "to": "Zurich HB",
+                "tot": "str"
+            }
+        ],
+        "active": true,
+        "x": 210,
+        "y": 740,
+        "wires": []
     }
 ]

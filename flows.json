@@ -645,15 +645,16 @@
         "id": "93018975c0e30839",
         "type": "debug",
         "z": "cb45ad9576c38512",
-        "name": "debug 2",
+        "name": "debug api response",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1000,
+        "x": 1040,
         "y": 720,
         "wires": []
     },
@@ -724,7 +725,8 @@
         "y": 880,
         "wires": [
             [
-                "f5586483da186a6b"
+                "f5586483da186a6b",
+                "a216e45bbf1996d9"
             ]
         ]
     },
@@ -745,8 +747,7 @@
         "y": 880,
         "wires": [
             [
-                "d25e0bd2755e351a",
-                "a216e45bbf1996d9"
+                "d25e0bd2755e351a"
             ]
         ]
     },
@@ -754,16 +755,17 @@
         "id": "a216e45bbf1996d9",
         "type": "debug",
         "z": "cb45ad9576c38512",
-        "name": "debug 3",
+        "name": "debug state machine",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1180,
-        "y": 880,
+        "x": 1040,
+        "y": 820,
         "wires": []
     },
     {
@@ -911,7 +913,7 @@
         "wires": [
             [
                 "7e571ac4095d9a28",
-                "974b12b043fc280d"
+                "c703b878c0218acc"
             ]
         ]
     },
@@ -1039,16 +1041,34 @@
         "id": "974b12b043fc280d",
         "type": "debug",
         "z": "cb45ad9576c38512",
-        "name": "debug 1",
+        "name": "debug switch off",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 780,
-        "y": 500,
+        "x": 790,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "c703b878c0218acc",
+        "type": "debug",
+        "z": "cb45ad9576c38512",
+        "name": "debug switch on",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 540,
         "wires": []
     }
 ]

@@ -457,7 +457,7 @@
                 "solarEvents": "sunrise,sunset"
             }
         ],
-        "x": 260,
+        "x": 500,
         "y": 440,
         "wires": [
             [
@@ -581,7 +581,7 @@
                 "solarEvents": "sunrise,sunset"
             }
         ],
-        "x": 230,
+        "x": 470,
         "y": 600,
         "wires": [
             [
@@ -605,7 +605,7 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 800,
+        "x": 860,
         "y": 600,
         "wires": [
             [
@@ -680,7 +680,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 510,
+        "x": 650,
         "y": 600,
         "wires": [
             [
@@ -700,7 +700,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 790,
+        "x": 830,
         "y": 740,
         "wires": [
             [
@@ -1041,8 +1041,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 900,
-        "y": 260,
+        "x": 140,
+        "y": 600,
         "wires": [
             [
                 "99080cb90971f4a2",
@@ -1069,8 +1069,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 900,
-        "y": 200,
+        "x": 140,
+        "y": 440,
         "wires": [
             [
                 "4221616079190907",

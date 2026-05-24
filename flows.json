@@ -715,7 +715,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "$merge([\t    payload,\t    {\t        \"draw\": $append(progress, icon, $flowContext(\"weather_icon\"))\t    }\t])",
+                "to": "$merge([\t    payload,\t    {\t        \"draw\": $append($append(progress, icon), $flowContext(\"weather_icon\"))\t    }\t])",
                 "tot": "jsonata"
             }
         ],

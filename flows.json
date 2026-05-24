@@ -1340,7 +1340,7 @@
         "z": "c3600f829a73137c",
         "name": "",
         "method": "GET",
-        "ret": "txt",
+        "ret": "obj",
         "paytoqs": "ignore",
         "url": "https://api.open-meteo.com/v1/forecast?latitude=47.37&longitude=8.54&hourly=precipitation&timezone=Europe%2FZurich&forecast_days=1&models=meteoswiss_icon_ch1",
         "tls": "",

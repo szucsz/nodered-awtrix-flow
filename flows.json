@@ -716,7 +716,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "{\t    \"draw\": $append(icon, [\t        {\t            \"dl\": [0, 7, minutesRemaining >= 1 ? (minutesRemaining >= 2 ? 1 : 0) : -1, 7, \"#FF0000\"]\t        },\t        {\t            \"dl\": [2, 7, minutesRemaining >= 3 ? (minutesRemaining >= 4 ? 3 : 2) : -1, 7, \"#FFFF00\"]\t        },\t        {\t            \"dl\": [4, 7, minutesRemaining >= 5 ? minutesRemaining : -1, 7, \"#00FF00\"]\t        }\t    ]),\t        \"text\": $fromMillis($millis(), \"[H01]:[m02]\", \"+0200\"),\t        \"textOffset\": 5,\t        \"duration\":  duration\t    }",
+                "to": "{\t    \"draw\": $append(icon, [\t        {\t            \"dl\": [11, 7, $minutes >= 1 ? ($minutes >= 2 ? 12 : 11) : -1, 7, \"#FF0000\"]\t        },\t        {\t            \"dl\": [13, 7, $minutes >= 3 ? ($minutes >= 4 ? 14 : 13) : -1, 7, \"#FFFF00\"]\t        },\t        {\t            \"dl\": [15, 7, $minutes >= 5 ? (10 + $minutes > 31 ? 31 : 10 + $minutes) : -1, 7, \"#00FF00\"]\t        }\t    ]),\t        \"text\": $fromMillis($millis(), \"[H01]:[m02]\", \"+0200\"),\t        \"textOffset\": 5,\t        \"duration\":  duration\t    }",
                 "tot": "jsonata"
             }
         ],

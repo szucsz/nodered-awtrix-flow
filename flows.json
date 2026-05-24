@@ -1456,7 +1456,7 @@
         "props": [
             {
                 "p": "payload.precipitation_score",
-                "v": "0",
+                "v": "3",
                 "vt": "num"
             }
         ],

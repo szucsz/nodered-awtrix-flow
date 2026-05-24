@@ -1371,8 +1371,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 840,
-        "y": 200,
+        "x": 800,
+        "y": 300,
         "wires": []
     },
     {
@@ -1391,7 +1391,8 @@
         "y": 200,
         "wires": [
             [
-                "cc9b8c580c8f7050"
+                "cc9b8c580c8f7050",
+                "08874971226940a1"
             ]
         ]
     },
@@ -1410,5 +1411,66 @@
         "x": 560,
         "y": 300,
         "wires": []
+    },
+    {
+        "id": "08874971226940a1",
+        "type": "function",
+        "z": "c3600f829a73137c",
+        "name": "function 2",
+        "func": "const score = Math.round(msg.payload.precipitation_score || 0);\n\nlet drawCommands = [\n];\n\nconst blue = \"#0000FF\";\n\nif (score >= 1) drawCommands.push({ \"dp\": [1, 0, blue] }); // Drop 1\nif (score >= 3) drawCommands.push({ \"dp\": [6, 1, blue] }); // Drop 2\nif (score >= 5) {\n    drawCommands.push({ \"dp\": [3, 7, blue] }, { \"dp\": [4, 7, blue] });\n}\nif (score >= 7) {\n    drawCommands.push({ \"dp\": [0, 1, blue] }, { \"dp\": [7, 0, blue] });\n    drawCommands.push({ \"dp\": [2, 7, blue] }, { \"dp\": [5, 7, blue] });\n}\nif (score >= 9) {\n    drawCommands.push({ \"dp\": [1, 7, blue] }, { \"dp\": [6, 7, blue] });\n    drawCommands.push({ \"dp\": [0, 5, blue] }, { \"dp\": [7, 5, blue] });\n}\n\nmsg.payload = {\n    \"weather_icon\": drawCommands,\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 200,
+        "wires": [
+            [
+                "dfce2ccbc5b22523"
+            ]
+        ]
+    },
+    {
+        "id": "dfce2ccbc5b22523",
+        "type": "debug",
+        "z": "c3600f829a73137c",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "12e7e092da1adeda",
+        "type": "inject",
+        "z": "c3600f829a73137c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload.precipitation_score",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 590,
+        "y": 100,
+        "wires": [
+            [
+                "08874971226940a1"
+            ]
+        ]
     }
 ]

@@ -1534,5 +1534,39 @@
         "x": 1045,
         "y": 200,
         "wires": []
+    },
+    {
+        "id": "87f9d5f864256ab8",
+        "type": "cronplus",
+        "z": "c3600f829a73137c",
+        "name": "",
+        "outputField": "payload",
+        "timeZone": "",
+        "storeName": "",
+        "commandResponseMsgOutput": "output1",
+        "defaultLocation": "",
+        "defaultLocationType": "default",
+        "outputs": 1,
+        "options": [
+            {
+                "name": "schedule1",
+                "topic": "topic1",
+                "payloadType": "default",
+                "payload": "",
+                "expressionType": "cron",
+                "expression": "0 0 4,6,8 * * * *",
+                "location": "",
+                "offset": "0",
+                "solarType": "all",
+                "solarEvents": "sunrise,sunset"
+            }
+        ],
+        "x": 180,
+        "y": 260,
+        "wires": [
+            [
+                "30734e4b92178f78"
+            ]
+        ]
     }
 ]

@@ -746,7 +746,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 520,
+        "x": 200,
         "y": 280,
         "wires": [
             [
@@ -765,7 +765,7 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 900,
+        "x": 200,
         "y": 180,
         "wires": [
             [

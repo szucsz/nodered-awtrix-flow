@@ -1135,5 +1135,37 @@
                 "016bd23c63f9372e"
             ]
         ]
+    },
+    {
+        "id": "7b5c500215b5ba7d",
+        "type": "catch",
+        "z": "cb45ad9576c38512",
+        "name": "Catch all errors",
+        "scope": null,
+        "uncaught": false,
+        "x": 1360,
+        "y": 660,
+        "wires": [
+            [
+                "a689fab3b5fe1af7"
+            ]
+        ]
+    },
+    {
+        "id": "a689fab3b5fe1af7",
+        "type": "debug",
+        "z": "cb45ad9576c38512",
+        "name": "log errors",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1560,
+        "y": 660,
+        "wires": []
     }
 ]

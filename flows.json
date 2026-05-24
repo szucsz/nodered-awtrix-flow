@@ -43,7 +43,7 @@
         "y": 80,
         "wires": [
             [
-                "bf4691a8c788ffaa"
+                "7645982379353008"
             ]
         ]
     },
@@ -898,7 +898,10 @@
         "type": "link in",
         "z": "cb45ad9576c38512",
         "name": "display off",
-        "links": [],
+        "links": [
+            "60b9e0bc124b7521",
+            "7645982379353008"
+        ],
         "x": 185,
         "y": 420,
         "wires": [
@@ -912,7 +915,10 @@
         "type": "link in",
         "z": "cb45ad9576c38512",
         "name": "display on",
-        "links": [],
+        "links": [
+            "60b9e0bc124b7521",
+            "3b169a2f67397965"
+        ],
         "x": 185,
         "y": 540,
         "wires": [
@@ -982,7 +988,7 @@
         "y": 180,
         "wires": [
             [
-                "7d543c26ce92d20a"
+                "3b169a2f67397965"
             ]
         ]
     },
@@ -1059,38 +1065,6 @@
         ]
     },
     {
-        "id": "bf4691a8c788ffaa",
-        "type": "link call",
-        "z": "aad00bdf02c91eb2",
-        "name": "",
-        "links": [
-            "00bed34b8cb77062"
-        ],
-        "linkType": "static",
-        "timeout": "30",
-        "x": 970,
-        "y": 80,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "7d543c26ce92d20a",
-        "type": "link call",
-        "z": "aad00bdf02c91eb2",
-        "name": "",
-        "links": [
-            "0db3c9a58d1da466"
-        ],
-        "linkType": "static",
-        "timeout": "30",
-        "x": 970,
-        "y": 180,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "e6fefe1be68404e6",
         "type": "mqtt in",
         "z": "aad00bdf02c91eb2",
@@ -1135,5 +1109,31 @@
                 "296b3bc009bfd79e"
             ]
         ]
+    },
+    {
+        "id": "7645982379353008",
+        "type": "link out",
+        "z": "aad00bdf02c91eb2",
+        "name": "display off",
+        "mode": "link",
+        "links": [
+            "00bed34b8cb77062"
+        ],
+        "x": 855,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "3b169a2f67397965",
+        "type": "link out",
+        "z": "aad00bdf02c91eb2",
+        "name": "display on",
+        "mode": "link",
+        "links": [
+            "0db3c9a58d1da466"
+        ],
+        "x": 855,
+        "y": 180,
+        "wires": []
     }
 ]

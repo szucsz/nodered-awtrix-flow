@@ -794,7 +794,7 @@
                 "payloadType": "default",
                 "payload": "",
                 "expressionType": "cron",
-                "expression": "30 */2 * * * * *",
+                "expression": "50 */2 * * * * *",
                 "location": "",
                 "offset": "0",
                 "solarType": "all",

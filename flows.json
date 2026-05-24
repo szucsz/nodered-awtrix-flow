@@ -1419,7 +1419,7 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 800,
+        "x": 820,
         "y": 300,
         "wires": []
     },
@@ -1427,7 +1427,7 @@
         "id": "4119f96643270b2d",
         "type": "function",
         "z": "c3600f829a73137c",
-        "name": "function 1",
+        "name": "process response",
         "func": "const now = new Date();\nconst currentHour = now.getHours();\nconst targetHour = 19; // 7 PM\n\n// Determine if we are looking at today or tomorrow\nlet targetDate = new Date();\nif (currentHour >= targetHour) {\n    // It's past 7 PM, look at tomorrow\n    targetDate.setDate(now.getDate() + 1);\n}\n\nconst targetDateStr = targetDate.toISOString().split('T')[0];\nconst times = msg.payload.hourly.time;\nconst precipValues = msg.payload.hourly.precipitation;\n\nlet maxPrecip = 0;\nlet hoursChecked = 0;\n\nfor (let i = 0; i < times.length; i++) {\n    const forecastDate = new Date(times[i]);\n    const fHour = forecastDate.getHours();\n    const fDateStr = forecastDate.toISOString().split('T')[0];\n\n    // Filter: Match the target date and ensure hour is <= 19:00\n    if (fDateStr === targetDateStr && fHour <= targetHour) {\n        // If it's today, only look from 'now' forward. \n        // If it's tomorrow, look from midnight (0:00) forward.\n        const isToday = (targetDateStr === now.toISOString().split('T')[0]);\n        if (!isToday || fHour >= currentHour) {\n            const amount = precipValues[i];\n            if (amount > maxPrecip) {\n                maxPrecip = amount;\n            }\n            hoursChecked++;\n        }\n    }\n}\n\n// Map max mm to 0-10 scale (sqrt scale for sensitivity)\n// 10mm = 10, 2.5mm = 5, 0.1mm = 1\nlet score = 0;\nif (maxPrecip > 0) {\n    score = Math.min(10, Math.sqrt(maxPrecip / 10) * 10);\n}\n\nmsg.payload = {\n    precipitation_score: parseFloat(score.toFixed(1)),\n    max_mm_predicted: maxPrecip,\n    target_date: targetDateStr,\n    hours_in_window: hoursChecked\n};\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -1435,7 +1435,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 600,
+        "x": 590,
         "y": 200,
         "wires": [
             [
@@ -1464,7 +1464,7 @@
         "id": "08874971226940a1",
         "type": "function",
         "z": "c3600f829a73137c",
-        "name": "function 2",
+        "name": "draw precipitation",
         "func": "const score = Math.round(msg.payload.precipitation_score || 0);\n\nlet drawCommands = [\n];\n\nconst blue = \"#0000FF\";\n\nif (score >= 1) drawCommands.push({ \"dp\": [1, 0, blue] }); // Drop 1\nif (score >= 3) drawCommands.push({ \"dp\": [6, 1, blue] }); // Drop 2\nif (score >= 5) {\n    drawCommands.push({ \"dp\": [3, 7, blue] }, { \"dp\": [4, 7, blue] });\n}\nif (score >= 7) {\n    drawCommands.push({ \"dp\": [0, 1, blue] }, { \"dp\": [7, 0, blue] });\n    drawCommands.push({ \"dp\": [2, 7, blue] }, { \"dp\": [5, 7, blue] });\n}\nif (score >= 9) {\n    drawCommands.push({ \"dp\": [1, 7, blue] }, { \"dp\": [6, 7, blue] });\n    drawCommands.push({ \"dp\": [0, 5, blue] }, { \"dp\": [7, 5, blue] });\n}\n\nmsg.payload = {\n    \"weather_icon\": drawCommands,\n};\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -1472,7 +1472,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 800,
+        "x": 850,
         "y": 200,
         "wires": [
             [
@@ -1493,7 +1493,7 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1020,
+        "x": 1080,
         "y": 300,
         "wires": []
     },

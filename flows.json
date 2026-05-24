@@ -1338,7 +1338,7 @@
                 "t": "set",
                 "p": "weather_icon",
                 "pt": "flow",
-                "to": "weather_icon",
+                "to": "payload.weather_icon",
                 "tot": "msg",
                 "dc": true
             }

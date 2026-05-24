@@ -24,6 +24,14 @@
         "env": []
     },
     {
+        "id": "c3600f829a73137c",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "df9c9bc1a31da916",
         "type": "junction",
         "z": "cb45ad9576c38512",
@@ -1296,5 +1304,74 @@
                 "7cf0bcd6981d88cb"
             ]
         ]
+    },
+    {
+        "id": "4cf209f5961f602f",
+        "type": "inject",
+        "z": "c3600f829a73137c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 200,
+        "wires": [
+            [
+                "30734e4b92178f78"
+            ]
+        ]
+    },
+    {
+        "id": "30734e4b92178f78",
+        "type": "http request",
+        "z": "c3600f829a73137c",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.open-meteo.com/v1/meteoswiss?latitude=47.37&longitude=8.54&hourly=precipitation&timezone=Europe%2FZurich",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 370,
+        "y": 200,
+        "wires": [
+            [
+                "cc9b8c580c8f7050"
+            ]
+        ]
+    },
+    {
+        "id": "cc9b8c580c8f7050",
+        "type": "debug",
+        "z": "c3600f829a73137c",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 200,
+        "wires": []
     }
 ]

@@ -1091,7 +1091,7 @@
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
-        "initialize": "",
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\nnode.status({});\n",
         "finalize": "",
         "libs": [],
         "x": 1690,

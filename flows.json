@@ -739,14 +739,14 @@
         "id": "8eddb05cf6069f29",
         "type": "inject",
         "z": "cb45ad9576c38512",
-        "name": "Start departures display",
+        "name": "Start on weekdays at 7am",
         "props": [],
         "repeat": "",
         "crontab": "00 07 * * 1,2,3,4,5",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 510,
+        "x": 520,
         "y": 280,
         "wires": [
             [
@@ -758,14 +758,14 @@
         "id": "7a4d0d8a4c2b1d02",
         "type": "inject",
         "z": "cb45ad9576c38512",
-        "name": "Stop departures display",
+        "name": "Stop on weekdays at 9am",
         "props": [],
         "repeat": "",
         "crontab": "00 09 * * 1,2,3,4,5",
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 890,
+        "x": 900,
         "y": 180,
         "wires": [
             [

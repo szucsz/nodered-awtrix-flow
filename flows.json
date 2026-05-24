@@ -680,12 +680,6 @@
                 "pt": "flow",
                 "to": "Zurich, Bahnhofstrasse/HB",
                 "tot": "str"
-            },
-            {
-                "p": "active",
-                "pt": "flow",
-                "to": "false",
-                "tot": "bool"
             }
         ],
         "active": true,

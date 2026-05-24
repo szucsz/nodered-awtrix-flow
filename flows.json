@@ -1354,7 +1354,7 @@
         "y": 200,
         "wires": [
             [
-                "cc9b8c580c8f7050"
+                "4119f96643270b2d"
             ]
         ]
     },
@@ -1370,8 +1370,28 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 640,
+        "x": 840,
         "y": 200,
         "wires": []
+    },
+    {
+        "id": "4119f96643270b2d",
+        "type": "function",
+        "z": "c3600f829a73137c",
+        "name": "function 1",
+        "func": "// 1. Setup time boundaries\nconst now = new Date();\nconst targetHour = 19; // 7 PM\nconst todayStr = now.toISOString().split('T')[0];\n\n// 2. Extract data from API response\nconst times = msg.payload.hourly.time;\nconst precip = msg.payload.hourly.precipitation; // in mm\n\nlet maxPrecip = 0;\nlet hoursFound = 0;\n\nfor (let i = 0; i < times.length; i++) {\n    let forecastTime = new Date(times[i]);\n    let forecastHour = forecastTime.getHours();\n    let forecastDate = forecastTime.toISOString().split('T')[0];\n\n    // Filter: Must be today, after \"now\", and before or at 7 PM\n    if (forecastDate === todayStr && forecastHour >= now.getHours() && forecastHour <= targetHour) {\n        if (precip[i] > maxPrecip) {\n            maxPrecip = precip[i];\n        }\n        hoursFound++;\n    }\n}\n\n// 3. Mapping to 0-10 Scale\n// Mapping logic: 0mm = 0, 0.5mm = 2 (light), 2.5mm = 5 (moderate), 10mm+ = 10 (heavy)\n// We use a square root or logarithmic approach for better sensitivity to light rain\nlet score = 0;\nif (maxPrecip > 0) {\n    // Formula: (sqrt(mm) / sqrt(10)) * 10, capped at 10\n    score = Math.min(10, Math.sqrt(maxPrecip / 10) * 10);\n}\n\nmsg.payload = {\n    precipitation_score: parseFloat(score.toFixed(1)),\n    max_mm_predicted: maxPrecip,\n    hours_checked: hoursFound\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 200,
+        "wires": [
+            [
+                "cc9b8c580c8f7050"
+            ]
+        ]
     }
 ]

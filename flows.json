@@ -8,17 +8,17 @@
         "env": []
     },
     {
-        "id": "cb45ad9576c38512",
+        "id": "aad00bdf02c91eb2",
         "type": "tab",
-        "label": "Departure Display Update",
+        "label": "Departure Display Control",
         "disabled": false,
         "info": "",
         "env": []
     },
     {
-        "id": "aad00bdf02c91eb2",
+        "id": "cb45ad9576c38512",
         "type": "tab",
-        "label": "Departure Display Control",
+        "label": "Departure Display Update",
         "disabled": false,
         "info": "",
         "env": []
@@ -360,6 +360,215 @@
                 "898f8cebeb9881fa"
             ]
         ]
+    },
+    {
+        "id": "62fc5167cc60b6cd",
+        "type": "inject",
+        "z": "aad00bdf02c91eb2",
+        "name": "Start on weekdays at 7am",
+        "props": [],
+        "repeat": "",
+        "crontab": "00 07 * * 1,2,3,4,5",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 180,
+        "y": 180,
+        "wires": [
+            [
+                "b3cf91e9782ce9c1"
+            ]
+        ]
+    },
+    {
+        "id": "e0a9eb20a083b752",
+        "type": "inject",
+        "z": "aad00bdf02c91eb2",
+        "name": "Stop on weekdays at 9am",
+        "props": [],
+        "repeat": "",
+        "crontab": "00 09 * * 1,2,3,4,5",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 180,
+        "y": 80,
+        "wires": [
+            [
+                "296b3bc009bfd79e"
+            ]
+        ]
+    },
+    {
+        "id": "b3cf91e9782ce9c1",
+        "type": "change",
+        "z": "aad00bdf02c91eb2",
+        "name": "Departure display on",
+        "rules": [
+            {
+                "t": "set",
+                "p": "active",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 180,
+        "wires": [
+            [
+                "3b169a2f67397965"
+            ]
+        ]
+    },
+    {
+        "id": "cf6ee58ed32ee09c",
+        "type": "mqtt in",
+        "z": "aad00bdf02c91eb2",
+        "name": "buttonRight",
+        "topic": "awtrix_2d6b0c/stats/buttonRight",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "82d58c550b2694ef",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 220,
+        "wires": [
+            [
+                "2d9d6342d435c6bf"
+            ]
+        ]
+    },
+    {
+        "id": "2d9d6342d435c6bf",
+        "type": "switch",
+        "z": "aad00bdf02c91eb2",
+        "name": "button pressed",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 300,
+        "y": 220,
+        "wires": [
+            [
+                "b3cf91e9782ce9c1",
+                "903740a11b1f1b42"
+            ]
+        ]
+    },
+    {
+        "id": "903740a11b1f1b42",
+        "type": "delay",
+        "z": "aad00bdf02c91eb2",
+        "name": "auto switch off 30m",
+        "pauseType": "delay",
+        "timeout": "30",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 610,
+        "y": 220,
+        "wires": [
+            [
+                "296b3bc009bfd79e"
+            ]
+        ]
+    },
+    {
+        "id": "e6fefe1be68404e6",
+        "type": "mqtt in",
+        "z": "aad00bdf02c91eb2",
+        "name": "buttonLeft",
+        "topic": "awtrix_2d6b0c/stats/buttonLeft",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "82d58c550b2694ef",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 120,
+        "wires": [
+            [
+                "c3d4994c228dd6cd"
+            ]
+        ]
+    },
+    {
+        "id": "c3d4994c228dd6cd",
+        "type": "switch",
+        "z": "aad00bdf02c91eb2",
+        "name": "button pressed",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 300,
+        "y": 120,
+        "wires": [
+            [
+                "296b3bc009bfd79e"
+            ]
+        ]
+    },
+    {
+        "id": "7645982379353008",
+        "type": "link out",
+        "z": "aad00bdf02c91eb2",
+        "name": "display off",
+        "mode": "link",
+        "links": [
+            "00bed34b8cb77062"
+        ],
+        "x": 855,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "3b169a2f67397965",
+        "type": "link out",
+        "z": "aad00bdf02c91eb2",
+        "name": "display on",
+        "mode": "link",
+        "links": [
+            "0db3c9a58d1da466"
+        ],
+        "x": 855,
+        "y": 180,
+        "wires": []
     },
     {
         "id": "2d3a70b9b6acc7e9",
@@ -926,214 +1135,5 @@
                 "016bd23c63f9372e"
             ]
         ]
-    },
-    {
-        "id": "62fc5167cc60b6cd",
-        "type": "inject",
-        "z": "aad00bdf02c91eb2",
-        "name": "Start on weekdays at 7am",
-        "props": [],
-        "repeat": "",
-        "crontab": "00 07 * * 1,2,3,4,5",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 180,
-        "y": 180,
-        "wires": [
-            [
-                "b3cf91e9782ce9c1"
-            ]
-        ]
-    },
-    {
-        "id": "e0a9eb20a083b752",
-        "type": "inject",
-        "z": "aad00bdf02c91eb2",
-        "name": "Stop on weekdays at 9am",
-        "props": [],
-        "repeat": "",
-        "crontab": "00 09 * * 1,2,3,4,5",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 180,
-        "y": 80,
-        "wires": [
-            [
-                "296b3bc009bfd79e"
-            ]
-        ]
-    },
-    {
-        "id": "b3cf91e9782ce9c1",
-        "type": "change",
-        "z": "aad00bdf02c91eb2",
-        "name": "Departure display on",
-        "rules": [
-            {
-                "t": "set",
-                "p": "active",
-                "pt": "flow",
-                "to": "true",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 560,
-        "y": 180,
-        "wires": [
-            [
-                "3b169a2f67397965"
-            ]
-        ]
-    },
-    {
-        "id": "cf6ee58ed32ee09c",
-        "type": "mqtt in",
-        "z": "aad00bdf02c91eb2",
-        "name": "buttonRight",
-        "topic": "awtrix_2d6b0c/stats/buttonRight",
-        "qos": "2",
-        "datatype": "utf8",
-        "broker": "82d58c550b2694ef",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 130,
-        "y": 220,
-        "wires": [
-            [
-                "2d9d6342d435c6bf"
-            ]
-        ]
-    },
-    {
-        "id": "2d9d6342d435c6bf",
-        "type": "switch",
-        "z": "aad00bdf02c91eb2",
-        "name": "button pressed",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "1",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 300,
-        "y": 220,
-        "wires": [
-            [
-                "b3cf91e9782ce9c1",
-                "903740a11b1f1b42"
-            ]
-        ]
-    },
-    {
-        "id": "903740a11b1f1b42",
-        "type": "delay",
-        "z": "aad00bdf02c91eb2",
-        "name": "auto switch off 30m",
-        "pauseType": "delay",
-        "timeout": "30",
-        "timeoutUnits": "minutes",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 610,
-        "y": 220,
-        "wires": [
-            [
-                "296b3bc009bfd79e"
-            ]
-        ]
-    },
-    {
-        "id": "e6fefe1be68404e6",
-        "type": "mqtt in",
-        "z": "aad00bdf02c91eb2",
-        "name": "buttonLeft",
-        "topic": "awtrix_2d6b0c/stats/buttonLeft",
-        "qos": "2",
-        "datatype": "utf8",
-        "broker": "82d58c550b2694ef",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 120,
-        "y": 120,
-        "wires": [
-            [
-                "c3d4994c228dd6cd"
-            ]
-        ]
-    },
-    {
-        "id": "c3d4994c228dd6cd",
-        "type": "switch",
-        "z": "aad00bdf02c91eb2",
-        "name": "button pressed",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "1",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 300,
-        "y": 120,
-        "wires": [
-            [
-                "296b3bc009bfd79e"
-            ]
-        ]
-    },
-    {
-        "id": "7645982379353008",
-        "type": "link out",
-        "z": "aad00bdf02c91eb2",
-        "name": "display off",
-        "mode": "link",
-        "links": [
-            "00bed34b8cb77062"
-        ],
-        "x": 855,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "3b169a2f67397965",
-        "type": "link out",
-        "z": "aad00bdf02c91eb2",
-        "name": "display on",
-        "mode": "link",
-        "links": [
-            "0db3c9a58d1da466"
-        ],
-        "x": 855,
-        "y": 180,
-        "wires": []
     }
 ]

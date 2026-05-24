@@ -1486,7 +1486,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 590,
-        "y": 100,
+        "y": 60,
         "wires": [
             [
                 "08874971226940a1"
@@ -1537,6 +1537,31 @@
         "wires": [
             [
                 "30734e4b92178f78"
+            ]
+        ]
+    },
+    {
+        "id": "0368cea88ec81e41",
+        "type": "inject",
+        "z": "c3600f829a73137c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload.precipitation_score",
+                "v": "5",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 590,
+        "y": 120,
+        "wires": [
+            [
+                "08874971226940a1"
             ]
         ]
     }

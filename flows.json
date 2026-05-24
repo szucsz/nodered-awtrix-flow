@@ -1338,7 +1338,8 @@
                 "p": "weather_icon",
                 "pt": "flow",
                 "to": "weather_icon",
-                "tot": "msg"
+                "tot": "msg",
+                "dc": true
             }
         ],
         "action": "",

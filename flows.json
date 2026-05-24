@@ -715,7 +715,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "$merge([\t    payload,\t    {\t        \"draw\": $append(progress, icon)\t    }\t])",
+                "to": "$merge([\t    payload,\t    {\t        \"draw\": $append(progress, icon, $flowContext(\"weather_icon\"))\t    }\t])",
                 "tot": "jsonata"
             }
         ],
@@ -888,6 +888,12 @@
                 "pt": "flow",
                 "to": "Zurich, Bahnhofstrasse/HB",
                 "tot": "str"
+            },
+            {
+                "p": "weather_icon",
+                "pt": "flow",
+                "to": "[]",
+                "tot": "json"
             }
         ],
         "active": true,
@@ -1306,6 +1312,48 @@
         ]
     },
     {
+        "id": "2fd20d761d831afa",
+        "type": "link in",
+        "z": "cb45ad9576c38512",
+        "name": "receive weather",
+        "links": [
+            "64d9fc67e8da8aa0"
+        ],
+        "x": 1345,
+        "y": 760,
+        "wires": [
+            [
+                "0ac21945e69b49db"
+            ]
+        ]
+    },
+    {
+        "id": "0ac21945e69b49db",
+        "type": "change",
+        "z": "cb45ad9576c38512",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "weather_icon",
+                "pt": "flow",
+                "to": "weather_icon",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1540,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "4cf209f5961f602f",
         "type": "inject",
         "z": "c3600f829a73137c",
@@ -1428,7 +1476,8 @@
         "y": 200,
         "wires": [
             [
-                "dfce2ccbc5b22523"
+                "dfce2ccbc5b22523",
+                "64d9fc67e8da8aa0"
             ]
         ]
     },
@@ -1472,5 +1521,18 @@
                 "08874971226940a1"
             ]
         ]
+    },
+    {
+        "id": "64d9fc67e8da8aa0",
+        "type": "link out",
+        "z": "c3600f829a73137c",
+        "name": "send weather icon",
+        "mode": "link",
+        "links": [
+            "2fd20d761d831afa"
+        ],
+        "x": 1045,
+        "y": 200,
+        "wires": []
     }
 ]

@@ -489,32 +489,7 @@
         "wires": [
             [
                 "b3cf91e9782ce9c1",
-                "903740a11b1f1b42"
-            ]
-        ]
-    },
-    {
-        "id": "903740a11b1f1b42",
-        "type": "delay",
-        "z": "aad00bdf02c91eb2",
-        "name": "auto switch off 30m",
-        "pauseType": "delay",
-        "timeout": "30",
-        "timeoutUnits": "minutes",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 610,
-        "y": 220,
-        "wires": [
-            [
-                "296b3bc009bfd79e"
+                "4b8e0321d6ecb057"
             ]
         ]
     },
@@ -589,6 +564,31 @@
         "x": 855,
         "y": 180,
         "wires": []
+    },
+    {
+        "id": "4b8e0321d6ecb057",
+        "type": "trigger",
+        "z": "aad00bdf02c91eb2",
+        "name": "auto switch off 30m",
+        "op1": "",
+        "op2": "OFF",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "30",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "min",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 610,
+        "y": 220,
+        "wires": [
+            [
+                "296b3bc009bfd79e"
+            ]
+        ]
     },
     {
         "id": "2d3a70b9b6acc7e9",
@@ -1114,7 +1114,6 @@
         "z": "cb45ad9576c38512",
         "name": "display off",
         "links": [
-            "60b9e0bc124b7521",
             "7645982379353008"
         ],
         "x": 185,
@@ -1131,7 +1130,6 @@
         "z": "cb45ad9576c38512",
         "name": "display on",
         "links": [
-            "60b9e0bc124b7521",
             "3b169a2f67397965"
         ],
         "x": 185,

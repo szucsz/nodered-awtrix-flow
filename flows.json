@@ -591,6 +591,25 @@
         ]
     },
     {
+        "id": "2e55b7d74a252241",
+        "type": "mqtt in",
+        "z": "aad00bdf02c91eb2",
+        "name": "buttonSelect",
+        "topic": "awtrix_2d6b0c/stats/buttonSelect",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "82d58c550b2694ef",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "2d3a70b9b6acc7e9",
         "type": "change",
         "z": "cb45ad9576c38512",

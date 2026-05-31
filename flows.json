@@ -1202,7 +1202,7 @@
         "id": "53b6990e7b012a4c",
         "type": "debug",
         "z": "cb45ad9576c38512",
-        "name": "debug 1",
+        "name": "debug display update",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -1211,7 +1211,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1880,
+        "x": 1920,
         "y": 280,
         "wires": []
     },

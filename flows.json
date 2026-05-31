@@ -1410,7 +1410,7 @@
         "type": "function",
         "z": "cb45ad9576c38512",
         "name": "process api response",
-        "func": "\nreturn msg;",
+        "func": "if (msg.payload && msg.payload.connections) {\n    let connections = msg.payload.connections;\n\n    let departureCache = [];\n    let prognosisCache = [];\n    for (let i = 0; i < Math.min(connections.length, 10); i++) {\n        if (!connections[i].from) continue;\n        if (connections[i].from.departure) {\n            departureCache.push(connections[i].from.departure);\n        }\n        if (connections[i].from.prognosis.departure) {\n            prognosisCache.push(connections[i].from.prognosis.departure);\n        }\n    }\n\n    flow.set('departureCache', departureCache);\n    flow.set('prognosisCache', prognosisCache);\n} \n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,

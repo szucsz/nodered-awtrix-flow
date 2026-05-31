@@ -1768,7 +1768,21 @@
         "payload": "",
         "payloadType": "date",
         "x": 300,
-        "y": 180,
+        "y": 140,
+        "wires": [
+            [
+                "478d4433203a73ea"
+            ]
+        ]
+    },
+    {
+        "id": "dd61769d5fa5e301",
+        "type": "link in",
+        "z": "2cb27cd5b911d451",
+        "name": "blink heartbeat",
+        "links": [],
+        "x": 245,
+        "y": 200,
         "wires": [
             [
                 "478d4433203a73ea"

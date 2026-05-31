@@ -1060,6 +1060,13 @@
                 "pt": "msg",
                 "to": "{\"command\":\"start\",\"name\":\"schedule\"}",
                 "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "firstTrigger",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
             }
         ],
         "action": "",

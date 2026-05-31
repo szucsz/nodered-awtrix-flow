@@ -420,7 +420,7 @@
         "y": 180,
         "wires": [
             [
-                "b3cf91e9782ce9c1"
+                "7375dcf369c702db"
             ]
         ]
     },
@@ -440,33 +440,6 @@
         "wires": [
             [
                 "296b3bc009bfd79e"
-            ]
-        ]
-    },
-    {
-        "id": "b3cf91e9782ce9c1",
-        "type": "change",
-        "z": "aad00bdf02c91eb2",
-        "name": "Departure display on",
-        "rules": [
-            {
-                "t": "set",
-                "p": "active",
-                "pt": "flow",
-                "to": "true",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 560,
-        "y": 180,
-        "wires": [
-            [
-                "3b169a2f67397965"
             ]
         ]
     },
@@ -512,8 +485,8 @@
         "y": 220,
         "wires": [
             [
-                "b3cf91e9782ce9c1",
-                "4b8e0321d6ecb057"
+                "4b8e0321d6ecb057",
+                "7375dcf369c702db"
             ]
         ]
     },
@@ -585,7 +558,7 @@
         "links": [
             "0db3c9a58d1da466"
         ],
-        "x": 855,
+        "x": 995,
         "y": 180,
         "wires": []
     },
@@ -631,6 +604,33 @@
         "y": 320,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "7375dcf369c702db",
+        "type": "change",
+        "z": "aad00bdf02c91eb2",
+        "name": "switch on",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "on",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 180,
+        "wires": [
+            [
+                "3b169a2f67397965"
+            ]
         ]
     },
     {
@@ -1464,6 +1464,53 @@
         "x": 1020,
         "y": 280,
         "wires": []
+    },
+    {
+        "id": "b8ec7a9cf7c71b1d",
+        "type": "link in",
+        "z": "cb45ad9576c38512",
+        "name": "switch on/off",
+        "links": [],
+        "x": 175,
+        "y": 480,
+        "wires": [
+            [
+                "15d1158119575210"
+            ]
+        ]
+    },
+    {
+        "id": "15d1158119575210",
+        "type": "switch",
+        "z": "cb45ad9576c38512",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 290,
+        "y": 480,
+        "wires": [
+            [
+                "29529dda8b697196"
+            ],
+            [
+                "1e6b6ec708b3a2bb"
+            ]
+        ]
     },
     {
         "id": "30734e4b92178f78",

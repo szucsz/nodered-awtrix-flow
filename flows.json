@@ -528,7 +528,7 @@
         "id": "3b169a2f67397965",
         "type": "link out",
         "z": "aad00bdf02c91eb2",
-        "name": "display on",
+        "name": "switch on/off",
         "mode": "link",
         "links": [
             "b8ec7a9cf7c71b1d"
@@ -1123,36 +1123,6 @@
         ]
     },
     {
-        "id": "00bed34b8cb77062",
-        "type": "link in",
-        "z": "cb45ad9576c38512",
-        "name": "display off",
-        "links": [
-            "7645982379353008"
-        ],
-        "x": 185,
-        "y": 420,
-        "wires": [
-            [
-                "29529dda8b697196"
-            ]
-        ]
-    },
-    {
-        "id": "0db3c9a58d1da466",
-        "type": "link in",
-        "z": "cb45ad9576c38512",
-        "name": "display on",
-        "links": [],
-        "x": 185,
-        "y": 540,
-        "wires": [
-            [
-                "1e6b6ec708b3a2bb"
-            ]
-        ]
-    },
-    {
         "id": "7b5c500215b5ba7d",
         "type": "catch",
         "z": "cb45ad9576c38512",
@@ -1469,7 +1439,7 @@
         "id": "b8ec7a9cf7c71b1d",
         "type": "link in",
         "z": "cb45ad9576c38512",
-        "name": "switch on/off",
+        "name": "display on/off",
         "links": [
             "3b169a2f67397965"
         ],

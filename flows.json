@@ -412,13 +412,14 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 180,
+        "x": 160,
         "y": 180,
         "wires": [
             [
                 "7375dcf369c702db"
             ]
-        ]
+        ],
+        "icon": "font-awesome/fa-power-off"
     },
     {
         "id": "e0a9eb20a083b752",
@@ -431,7 +432,7 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 180,
+        "x": 160,
         "y": 80,
         "wires": [
             [

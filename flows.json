@@ -869,7 +869,8 @@
         "wires": [
             [
                 "93018975c0e30839",
-                "c9ef14c8efa4c355"
+                "c9ef14c8efa4c355",
+                "ef016037488140f1"
             ]
         ]
     },
@@ -886,8 +887,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1860,
-        "y": 540,
+        "x": 1840,
+        "y": 660,
         "wires": []
     },
     {
@@ -1402,6 +1403,24 @@
             [
                 "a6de75c8a25b7447"
             ]
+        ]
+    },
+    {
+        "id": "ef016037488140f1",
+        "type": "function",
+        "z": "cb45ad9576c38512",
+        "name": "process api response",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1840,
+        "y": 540,
+        "wires": [
+            []
         ]
     },
     {

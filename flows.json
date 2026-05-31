@@ -32,6 +32,14 @@
         "env": []
     },
     {
+        "id": "2cb27cd5b911d451",
+        "type": "tab",
+        "label": "Heartbeat",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "df9c9bc1a31da916",
         "type": "junction",
         "z": "cb45ad9576c38512",
@@ -1694,6 +1702,48 @@
             [
                 "08874971226940a1"
             ]
+        ]
+    },
+    {
+        "id": "478d4433203a73ea",
+        "type": "trigger",
+        "z": "2cb27cd5b911d451",
+        "name": "",
+        "op1": "1",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1000",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 260,
+        "y": 180,
+        "wires": [
+            [
+                "02dc69f7d8fcf447"
+            ]
+        ]
+    },
+    {
+        "id": "02dc69f7d8fcf447",
+        "type": "file",
+        "z": "2cb27cd5b911d451",
+        "name": "update green power led",
+        "filename": "/sys/class/leds/green:power/brightness",
+        "filenameType": "str",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 670,
+        "y": 180,
+        "wires": [
+            []
         ]
     }
 ]

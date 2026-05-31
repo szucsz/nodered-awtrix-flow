@@ -419,7 +419,7 @@
                 "7375dcf369c702db"
             ]
         ],
-        "icon": "font-awesome/fa-power-off"
+        "icon": "font-awesome/fa-toggle-on"
     },
     {
         "id": "e0a9eb20a083b752",
@@ -438,7 +438,8 @@
             [
                 "c5d1b1e38837ac6e"
             ]
-        ]
+        ],
+        "icon": "font-awesome/fa-toggle-off"
     },
     {
         "id": "cf6ee58ed32ee09c",

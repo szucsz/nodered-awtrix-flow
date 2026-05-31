@@ -1091,6 +1091,13 @@
                 "pt": "msg",
                 "to": "true",
                 "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "active",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
             }
         ],
         "action": "",
@@ -1120,6 +1127,13 @@
                 "pt": "msg",
                 "to": "{\"command\":\"stop\",\"name\":\"schedule\"}",
                 "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "active",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
             }
         ],
         "action": "",

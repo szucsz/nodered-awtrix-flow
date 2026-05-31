@@ -44,18 +44,6 @@
         ]
     },
     {
-        "id": "296b3bc009bfd79e",
-        "type": "junction",
-        "z": "aad00bdf02c91eb2",
-        "x": 800,
-        "y": 80,
-        "wires": [
-            [
-                "7645982379353008"
-            ]
-        ]
-    },
-    {
         "id": "7cf0bcd6981d88cb",
         "type": "junction",
         "z": "cb45ad9576c38512",
@@ -439,7 +427,7 @@
         "y": 80,
         "wires": [
             [
-                "296b3bc009bfd79e"
+                "c5d1b1e38837ac6e"
             ]
         ]
     },
@@ -532,22 +520,9 @@
         "y": 120,
         "wires": [
             [
-                "296b3bc009bfd79e"
+                "c5d1b1e38837ac6e"
             ]
         ]
-    },
-    {
-        "id": "7645982379353008",
-        "type": "link out",
-        "z": "aad00bdf02c91eb2",
-        "name": "display off",
-        "mode": "link",
-        "links": [
-            "00bed34b8cb77062"
-        ],
-        "x": 855,
-        "y": 80,
-        "wires": []
     },
     {
         "id": "3b169a2f67397965",
@@ -556,7 +531,7 @@
         "name": "display on",
         "mode": "link",
         "links": [
-            "0db3c9a58d1da466"
+            "b8ec7a9cf7c71b1d"
         ],
         "x": 995,
         "y": 180,
@@ -583,7 +558,7 @@
         "y": 220,
         "wires": [
             [
-                "296b3bc009bfd79e"
+                "c5d1b1e38837ac6e"
             ]
         ]
     },
@@ -627,6 +602,33 @@
         "reg": false,
         "x": 580,
         "y": 180,
+        "wires": [
+            [
+                "3b169a2f67397965"
+            ]
+        ]
+    },
+    {
+        "id": "c5d1b1e38837ac6e",
+        "type": "change",
+        "z": "aad00bdf02c91eb2",
+        "name": "switch off",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "off",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 800,
+        "y": 80,
         "wires": [
             [
                 "3b169a2f67397965"
@@ -1141,9 +1143,7 @@
         "type": "link in",
         "z": "cb45ad9576c38512",
         "name": "display on",
-        "links": [
-            "3b169a2f67397965"
-        ],
+        "links": [],
         "x": 185,
         "y": 540,
         "wires": [
@@ -1470,7 +1470,9 @@
         "type": "link in",
         "z": "cb45ad9576c38512",
         "name": "switch on/off",
-        "links": [],
+        "links": [
+            "3b169a2f67397965"
+        ],
         "x": 175,
         "y": 480,
         "wires": [

@@ -1126,7 +1126,8 @@
         "wires": [
             [
                 "f5263ef7bb4b07e9",
-                "53b6990e7b012a4c"
+                "53b6990e7b012a4c",
+                "8d279bec2d8983ef"
             ]
         ]
     },
@@ -1493,6 +1494,19 @@
         ]
     },
     {
+        "id": "8d279bec2d8983ef",
+        "type": "link out",
+        "z": "cb45ad9576c38512",
+        "name": "trigger heartbeat",
+        "mode": "link",
+        "links": [
+            "dd61769d5fa5e301"
+        ],
+        "x": 1835,
+        "y": 220,
+        "wires": []
+    },
+    {
         "id": "30734e4b92178f78",
         "type": "http request",
         "z": "c3600f829a73137c",
@@ -1780,7 +1794,9 @@
         "type": "link in",
         "z": "2cb27cd5b911d451",
         "name": "blink heartbeat",
-        "links": [],
+        "links": [
+            "8d279bec2d8983ef"
+        ],
         "x": 245,
         "y": 200,
         "wires": [

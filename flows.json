@@ -1428,7 +1428,7 @@
         "id": "52da28769f277b32",
         "type": "switch",
         "z": "cb45ad9576c38512",
-        "name": "",
+        "name": "Refresh screen",
         "property": "firstTrigger",
         "propertyType": "msg",
         "rules": [
@@ -1439,7 +1439,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 1790,
+        "x": 1820,
         "y": 540,
         "wires": [
             [

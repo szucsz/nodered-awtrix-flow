@@ -1019,60 +1019,6 @@
         ]
     },
     {
-        "id": "016bd23c63f9372e",
-        "type": "change",
-        "z": "cb45ad9576c38512",
-        "name": "Departure display on",
-        "rules": [
-            {
-                "t": "set",
-                "p": "active",
-                "pt": "flow",
-                "to": "true",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 600,
-        "y": 540,
-        "wires": [
-            [
-                "1e6b6ec708b3a2bb"
-            ]
-        ]
-    },
-    {
-        "id": "fb1858dcbffc9da6",
-        "type": "change",
-        "z": "cb45ad9576c38512",
-        "name": "Departure display off",
-        "rules": [
-            {
-                "t": "set",
-                "p": "active",
-                "pt": "flow",
-                "to": "false",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 600,
-        "y": 420,
-        "wires": [
-            [
-                "29529dda8b697196"
-            ]
-        ]
-    },
-    {
         "id": "1e6b6ec708b3a2bb",
         "type": "change",
         "z": "cb45ad9576c38512",
@@ -1184,7 +1130,7 @@
         "y": 420,
         "wires": [
             [
-                "fb1858dcbffc9da6"
+                "29529dda8b697196"
             ]
         ]
     },
@@ -1200,7 +1146,7 @@
         "y": 540,
         "wires": [
             [
-                "016bd23c63f9372e"
+                "1e6b6ec708b3a2bb"
             ]
         ]
     },

@@ -783,22 +783,22 @@
         "correl": "",
         "expiry": "",
         "broker": "82d58c550b2694ef",
-        "x": 2400,
-        "y": 460,
+        "x": 2660,
+        "y": 500,
         "wires": []
     },
     {
         "id": "b93aed9010474c79",
         "type": "change",
         "z": "cb45ad9576c38512",
-        "name": "remove app",
+        "name": "no data",
         "rules": [
             {
                 "t": "set",
-                "p": "payload",
+                "p": "icon",
                 "pt": "msg",
-                "to": "",
-                "tot": "str"
+                "to": "[]",
+                "tot": "json"
             }
         ],
         "action": "",
@@ -806,11 +806,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2090,
+        "x": 2080,
         "y": 460,
         "wires": [
             [
-                "a6de75c8a25b7447"
+                "540282ecbcf45fa7"
             ]
         ]
     },
@@ -1101,8 +1101,8 @@
         "wires": [
             [
                 "99080cb90971f4a2",
-                "b93aed9010474c79",
-                "df9c9bc1a31da916"
+                "df9c9bc1a31da916",
+                "31de865df071c217"
             ]
         ]
     },
@@ -1368,6 +1368,33 @@
         "y": 760,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "31de865df071c217",
+        "type": "change",
+        "z": "cb45ad9576c38512",
+        "name": "remove app",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2090,
+        "y": 500,
+        "wires": [
+            [
+                "a6de75c8a25b7447"
+            ]
         ]
     },
     {

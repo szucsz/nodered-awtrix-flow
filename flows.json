@@ -878,7 +878,7 @@
         "type": "debug",
         "z": "cb45ad9576c38512",
         "name": "debug api response",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,

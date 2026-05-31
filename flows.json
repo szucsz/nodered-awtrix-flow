@@ -1428,7 +1428,7 @@
         "id": "52da28769f277b32",
         "type": "switch",
         "z": "cb45ad9576c38512",
-        "name": "Refresh screen",
+        "name": "Refresh display",
         "property": "firstTrigger",
         "propertyType": "msg",
         "rules": [

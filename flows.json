@@ -1955,7 +1955,7 @@
         "name": "",
         "topic": "awtrix_2d6b0c/stats/#",
         "qos": "2",
-        "datatype": "json",
+        "datatype": "auto-detect",
         "broker": "82d58c550b2694ef",
         "nl": false,
         "rap": true,

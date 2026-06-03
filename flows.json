@@ -1890,13 +1890,13 @@
         "id": "ac91440f2ed254cc",
         "type": "change",
         "z": "2cb27cd5b911d451",
-        "name": "delay 3",
+        "name": "delay 3s",
         "rules": [
             {
                 "t": "set",
                 "p": "delay",
                 "pt": "msg",
-                "to": "3",
+                "to": "3000",
                 "tot": "num"
             }
         ],
@@ -1917,13 +1917,13 @@
         "id": "1dff7e5f172df6e7",
         "type": "change",
         "z": "2cb27cd5b911d451",
-        "name": "delay 1",
+        "name": "delay 1s",
         "rules": [
             {
                 "t": "set",
                 "p": "delay",
                 "pt": "msg",
-                "to": "1",
+                "to": "1000",
                 "tot": "num"
             }
         ],

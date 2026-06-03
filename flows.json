@@ -1947,5 +1947,43 @@
                 "56b8085216ff4e7b"
             ]
         ]
+    },
+    {
+        "id": "00e59abcbda4c026",
+        "type": "mqtt in",
+        "z": "2cb27cd5b911d451",
+        "name": "",
+        "topic": "awtrix_2d6b0c/stats/#",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "82d58c550b2694ef",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 320,
+        "y": 440,
+        "wires": [
+            [
+                "c320a6b30dd5c44f"
+            ]
+        ]
+    },
+    {
+        "id": "c320a6b30dd5c44f",
+        "type": "debug",
+        "z": "2cb27cd5b911d451",
+        "name": "debug /stats/#",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 440,
+        "wires": []
     }
 ]

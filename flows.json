@@ -1726,7 +1726,7 @@
         "id": "478d4433203a73ea",
         "type": "trigger",
         "z": "2cb27cd5b911d451",
-        "name": "",
+        "name": "blink for heartbeat",
         "op1": "1",
         "op2": "0",
         "op1type": "str",
@@ -1739,7 +1739,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 860,
+        "x": 870,
         "y": 180,
         "wires": [
             [
@@ -1890,7 +1890,7 @@
         "id": "ac91440f2ed254cc",
         "type": "change",
         "z": "2cb27cd5b911d451",
-        "name": "delay 3s",
+        "name": "display heartbeat 3s",
         "rules": [
             {
                 "t": "set",
@@ -1905,7 +1905,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 440,
+        "x": 480,
         "y": 200,
         "wires": [
             [
@@ -1917,7 +1917,7 @@
         "id": "1dff7e5f172df6e7",
         "type": "change",
         "z": "2cb27cd5b911d451",
-        "name": "delay 1s",
+        "name": "/stats heartbeat 1s",
         "rules": [
             {
                 "t": "set",
@@ -1932,7 +1932,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 540,
+        "x": 570,
         "y": 260,
         "wires": [
             [

@@ -1882,7 +1882,7 @@
         "type": "debug",
         "z": "2cb27cd5b911d451",
         "name": "debug /stats/loop",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,

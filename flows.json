@@ -88,6 +88,18 @@
         ]
     },
     {
+        "id": "56b8085216ff4e7b",
+        "type": "junction",
+        "z": "2cb27cd5b911d451",
+        "x": 740,
+        "y": 180,
+        "wires": [
+            [
+                "478d4433203a73ea"
+            ]
+        ]
+    },
+    {
         "id": "82d58c550b2694ef",
         "type": "mqtt-broker",
         "name": "mqtt@opi3z",
@@ -1768,14 +1780,12 @@
         "id": "938b362f3f71f2d7",
         "type": "inject",
         "z": "2cb27cd5b911d451",
-        "name": "",
+        "name": "blink 5s",
         "props": [
             {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
+                "p": "delay",
+                "v": "5000",
+                "vt": "num"
             }
         ],
         "repeat": "",
@@ -1783,13 +1793,11 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 300,
+        "x": 510,
         "y": 140,
         "wires": [
             [
-                "478d4433203a73ea"
+                "56b8085216ff4e7b"
             ]
         ]
     },
@@ -1909,7 +1917,7 @@
         "y": 200,
         "wires": [
             [
-                "478d4433203a73ea"
+                "56b8085216ff4e7b"
             ]
         ]
     },
@@ -1936,7 +1944,7 @@
         "y": 260,
         "wires": [
             [
-                "478d4433203a73ea"
+                "56b8085216ff4e7b"
             ]
         ]
     }

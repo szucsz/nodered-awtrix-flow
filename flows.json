@@ -1974,7 +1974,7 @@
         "type": "debug",
         "z": "2cb27cd5b911d451",
         "name": "debug /stats/#",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,

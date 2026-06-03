@@ -1780,7 +1780,7 @@
         "id": "938b362f3f71f2d7",
         "type": "inject",
         "z": "2cb27cd5b911d451",
-        "name": "blink 5s",
+        "name": "blink green led for 5s",
         "props": [
             {
                 "p": "delay",
@@ -1793,7 +1793,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 510,
+        "x": 560,
         "y": 140,
         "wires": [
             [

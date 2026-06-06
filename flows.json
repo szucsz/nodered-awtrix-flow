@@ -565,7 +565,7 @@
         "z": "aad00bdf02c91eb2",
         "name": "auto switch off 30m",
         "op1": "",
-        "op2": "OFF",
+        "op2": "off",
         "op1type": "nul",
         "op2type": "str",
         "duration": "30",

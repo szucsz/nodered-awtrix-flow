@@ -1558,7 +1558,7 @@
         "tostatus": true,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "precipitation_score",
+        "statusVal": "payload.precipitation_score",
         "statusType": "jsonata",
         "x": 850,
         "y": 300,

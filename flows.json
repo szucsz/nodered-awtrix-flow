@@ -1558,8 +1558,8 @@
         "tostatus": true,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
+        "statusVal": "precipitation_score",
+        "statusType": "jsonata",
         "x": 850,
         "y": 300,
         "wires": []

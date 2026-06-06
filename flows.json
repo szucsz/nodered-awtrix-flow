@@ -1552,7 +1552,7 @@
         "type": "debug",
         "z": "c3600f829a73137c",
         "name": "debug precipitation score",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": true,

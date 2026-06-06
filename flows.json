@@ -576,8 +576,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 530,
-        "y": 220,
+        "x": 550,
+        "y": 40,
         "wires": [
             [
                 "c5d1b1e38837ac6e"
@@ -622,7 +622,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 500,
+        "x": 520,
         "y": 180,
         "wires": [
             [

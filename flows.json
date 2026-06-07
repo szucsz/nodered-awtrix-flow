@@ -757,7 +757,7 @@
                 "payloadType": "date",
                 "payload": "object",
                 "expressionType": "cron",
-                "expression": "*/10 * * * * * *",
+                "expression": "0/10 * * * * * *",
                 "location": "",
                 "offset": "0",
                 "solarType": "all",

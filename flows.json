@@ -869,7 +869,7 @@
         "name": "Trigger API refresh",
         "outputField": "timestamp",
         "timeZone": "",
-        "storeName": "memory",
+        "storeName": "",
         "commandResponseMsgOutput": "output1",
         "defaultLocation": "",
         "defaultLocationType": "default",

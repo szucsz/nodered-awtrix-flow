@@ -1418,8 +1418,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 1820,
-        "y": 540,
+        "x": 1440,
+        "y": 440,
         "wires": [
             [
                 "c9ef14c8efa4c355"

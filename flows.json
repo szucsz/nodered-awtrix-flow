@@ -768,7 +768,8 @@
         "y": 380,
         "wires": [
             [
-                "c9ef14c8efa4c355"
+                "c9ef14c8efa4c355",
+                "cb5f62f206a69f1a"
             ]
         ]
     },
@@ -892,7 +893,8 @@
         "y": 500,
         "wires": [
             [
-                "7e571ac4095d9a28"
+                "7e571ac4095d9a28",
+                "8b40c04c53fcbfea"
             ]
         ]
     },
@@ -1520,6 +1522,40 @@
         ],
         "x": 1835,
         "y": 220,
+        "wires": []
+    },
+    {
+        "id": "cb5f62f206a69f1a",
+        "type": "debug",
+        "z": "cb45ad9576c38512",
+        "name": "clock update trigger",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "$now()",
+        "statusType": "jsonata",
+        "x": 1600,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "8b40c04c53fcbfea",
+        "type": "debug",
+        "z": "cb45ad9576c38512",
+        "name": "api refresh trigger",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "$now()",
+        "statusType": "jsonata",
+        "x": 1330,
+        "y": 600,
         "wires": []
     },
     {

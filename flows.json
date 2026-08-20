@@ -157,7 +157,7 @@
         "id": "a43af5ea6e36d161",
         "type": "cronplus",
         "z": "feb236673896ab73",
-        "name": "Midnight",
+        "name": "Night mode",
         "outputField": "payload",
         "timeZone": "",
         "storeName": "",
@@ -179,7 +179,7 @@
                 "solarEvents": "sunrise,sunset"
             }
         ],
-        "x": 180,
+        "x": 190,
         "y": 340,
         "wires": [
             [

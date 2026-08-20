@@ -1897,11 +1897,11 @@
         "type": "switch",
         "z": "2cb27cd5b911d451",
         "name": "sleep",
-        "property": "sleep",
+        "property": "heartbeat",
         "propertyType": "flow",
         "rules": [
             {
-                "t": "false"
+                "t": "true"
             },
             {
                 "t": "false"

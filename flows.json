@@ -228,7 +228,8 @@
         "y": 340,
         "wires": [
             [
-                "7041f2ccea4512ca"
+                "7041f2ccea4512ca",
+                "a95cb002575ebc02"
             ]
         ]
     },
@@ -255,7 +256,8 @@
         "y": 80,
         "wires": [
             [
-                "7041f2ccea4512ca"
+                "7041f2ccea4512ca",
+                "65a1d19898dd49b9"
             ]
         ]
     },
@@ -400,6 +402,71 @@
                 "898f8cebeb9881fa"
             ]
         ]
+    },
+    {
+        "id": "a95cb002575ebc02",
+        "type": "change",
+        "z": "feb236673896ab73",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "sleep",
+                "pt": "msg",
+                "to": "on",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 380,
+        "wires": [
+            [
+                "820ad2f76d43d32e"
+            ]
+        ]
+    },
+    {
+        "id": "65a1d19898dd49b9",
+        "type": "change",
+        "z": "feb236673896ab73",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "sleep",
+                "pt": "msg",
+                "to": "off",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 60,
+        "wires": [
+            [
+                "820ad2f76d43d32e"
+            ]
+        ]
+    },
+    {
+        "id": "820ad2f76d43d32e",
+        "type": "link out",
+        "z": "feb236673896ab73",
+        "name": "sleep on/off",
+        "mode": "link",
+        "links": [],
+        "x": 1125,
+        "y": 220,
+        "wires": []
     },
     {
         "id": "62fc5167cc60b6cd",

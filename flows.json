@@ -2058,32 +2058,7 @@
         "id": "a57b4365fe8cb28c",
         "type": "change",
         "z": "2cb27cd5b911d451",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "heartbeat",
-                "pt": "flow",
-                "to": "false",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 630,
-        "y": 540,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "f8156f5ebf25eecb",
-        "type": "change",
-        "z": "2cb27cd5b911d451",
-        "name": "",
+        "name": "heartbeat on",
         "rules": [
             {
                 "t": "set",
@@ -2098,7 +2073,32 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 630,
+        "x": 610,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f8156f5ebf25eecb",
+        "type": "change",
+        "z": "2cb27cd5b911d451",
+        "name": "heartbeat off",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heartbeat",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 610,
         "y": 600,
         "wires": [
             []

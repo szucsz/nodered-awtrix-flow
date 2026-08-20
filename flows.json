@@ -463,7 +463,9 @@
         "z": "feb236673896ab73",
         "name": "sleep on/off",
         "mode": "link",
-        "links": [],
+        "links": [
+            "613a4cfe73bc2ad6"
+        ],
         "x": 1125,
         "y": 220,
         "wires": []
@@ -608,8 +610,7 @@
         "name": "switch on/off",
         "mode": "link",
         "links": [
-            "b8ec7a9cf7c71b1d",
-            "613a4cfe73bc2ad6"
+            "b8ec7a9cf7c71b1d"
         ],
         "x": 905,
         "y": 180,
@@ -1992,7 +1993,7 @@
         "z": "2cb27cd5b911d451",
         "name": "heartbeat on/off",
         "links": [
-            "3b169a2f67397965"
+            "820ad2f76d43d32e"
         ],
         "x": 255,
         "y": 560,
@@ -2025,7 +2026,7 @@
         "type": "switch",
         "z": "2cb27cd5b911d451",
         "name": "",
-        "property": "payload",
+        "property": "sleep",
         "propertyType": "msg",
         "rules": [
             {

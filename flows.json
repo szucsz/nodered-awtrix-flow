@@ -172,7 +172,7 @@
                 "payloadType": "default",
                 "payload": "",
                 "expressionType": "cron",
-                "expression": "0 55 22 * * * *",
+                "expression": "0 30 21 * * * *",
                 "location": "",
                 "offset": "0",
                 "solarType": "all",

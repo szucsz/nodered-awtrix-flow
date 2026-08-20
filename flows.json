@@ -83,7 +83,7 @@
         "y": 180,
         "wires": [
             [
-                "478d4433203a73ea"
+                "565df2a38dee1f06"
             ]
         ]
     },
@@ -541,7 +541,8 @@
         "name": "switch on/off",
         "mode": "link",
         "links": [
-            "b8ec7a9cf7c71b1d"
+            "b8ec7a9cf7c71b1d",
+            "613a4cfe73bc2ad6"
         ],
         "x": 905,
         "y": 180,
@@ -1656,7 +1657,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 870,
+        "x": 1010,
         "y": 180,
         "wires": [
             [
@@ -1675,7 +1676,7 @@
         "createDir": false,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 1130,
+        "x": 1250,
         "y": 180,
         "wires": [
             []
@@ -1890,5 +1891,149 @@
         "x": 820,
         "y": 440,
         "wires": []
+    },
+    {
+        "id": "565df2a38dee1f06",
+        "type": "switch",
+        "z": "2cb27cd5b911d451",
+        "name": "sleep",
+        "property": "sleep",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 830,
+        "y": 180,
+        "wires": [
+            [
+                "478d4433203a73ea"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "613a4cfe73bc2ad6",
+        "type": "link in",
+        "z": "2cb27cd5b911d451",
+        "name": "heartbeat on/off",
+        "links": [
+            "3b169a2f67397965"
+        ],
+        "x": 255,
+        "y": 560,
+        "wires": [
+            [
+                "e0cb14c3c75729d9"
+            ]
+        ]
+    },
+    {
+        "id": "8b0db96e8a35cadd",
+        "type": "config",
+        "z": "2cb27cd5b911d451",
+        "name": "initialize",
+        "properties": [
+            {
+                "p": "heartbeat",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "active": true,
+        "x": 140,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "e0cb14c3c75729d9",
+        "type": "switch",
+        "z": "2cb27cd5b911d451",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 410,
+        "y": 560,
+        "wires": [
+            [
+                "a57b4365fe8cb28c"
+            ],
+            [
+                "f8156f5ebf25eecb"
+            ]
+        ]
+    },
+    {
+        "id": "a57b4365fe8cb28c",
+        "type": "change",
+        "z": "2cb27cd5b911d451",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heartbeat",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f8156f5ebf25eecb",
+        "type": "change",
+        "z": "2cb27cd5b911d451",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heartbeat",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 600,
+        "wires": [
+            []
+        ]
     }
 ]
